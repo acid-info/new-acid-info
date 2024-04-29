@@ -19,7 +19,7 @@ pipeline {
   }
 
   environment {
-    IMAGE_NAME = 'statusteam/free-technology'
+    IMAGE_NAME = ''
     NEXT_PUBLIC_SITE_URL = "https://${env.JOB_BASE_NAME}"
   }
 
@@ -29,7 +29,7 @@ pipeline {
         script {
           withCredentials([
             string(
-              credentialsId: 'free-technology-github-token',
+              credentialsId: 'acid-info-github-token',
               variable: 'NEXT_GITHUB_PERSONAL_ACCESS_TOKEN'
             ),
           ]) {

@@ -19,6 +19,7 @@ export const FooterContainer = styled.div`
 
   @media (max-width: ${uiConfigs.maxContainerWidth + 32}px) {
     margin-inline: 16px;
+    width: calc(100% - 32px);
   }
 `
 

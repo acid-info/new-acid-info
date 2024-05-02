@@ -45,6 +45,7 @@ const Container = styled.header<{
 }>`
   width: 100%;
   height: ${uiConfigs.navbarRenderedHeight}px;
+  background-color: rgb(var(--lsd-theme-secondary));
 
   position: fixed;
   top: 0;
@@ -58,17 +59,6 @@ const Container = styled.header<{
   }
 `
 
-const Buttons = styled.div<{ mobile?: boolean }>`
-  display: none;
-  align-items: center;
-  justify-content: center;
-
-  > * {
-    :last-of-type {
-      margin-left: -1px;
-    }
-  }
-`
 const NavBarContainer = styled.nav<{
   bordered?: boolean
 }>`

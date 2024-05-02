@@ -53,7 +53,7 @@ export const useLSDTheme = () => {
       },
       palette: {
         primary: '20, 0, 255',
-        secondary: '0, 0, 0',
+        secondary: '255, 255, 255',
       },
       spacing: [],
       typography: {},

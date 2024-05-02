@@ -4,4 +4,5 @@ export const siteConfigs = {
   keywords: [],
   xHandle: 'ac1d_info',
   youtubeHandle: ',',
+  spotifyHandle: 'ac1d.info',
 }

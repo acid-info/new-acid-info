@@ -33,7 +33,7 @@ export default function NavBar() {
             <AcidIcon color="primary" />
           </Logo>
         </Centered>
-        <NavbarLinks links={NavLinksItems.slice(0, 2)} />
+        <NavbarLinks links={NavLinksItems.slice(2, 4)} />
         {showMobileMenu && <NavbarMobileMenu />}
       </NavBarContainer>
     </Container>

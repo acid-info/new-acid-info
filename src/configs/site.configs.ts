@@ -3,6 +3,6 @@ export const siteConfigs = {
   description: 'Fostering innovation, defending digital liberties',
   keywords: [],
   xHandle: 'ac1d_info',
-  youtubeHandle: ',',
+  youtubeHandle: '@LogosNetwork',
   spotifyHandle: 'ac1d.info',
 }

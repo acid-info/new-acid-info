@@ -21,3 +21,26 @@ export const FooterContainer = styled.div`
     margin-inline: 16px;
   }
 `
+
+export const FooterContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  width: 100%;
+
+  padding: 8px;
+
+  &:not(:last-child) {
+    border-right: 1px solid rgb(var(--lsd-border-primary));
+  }
+
+  a,
+  a:visited,
+  a:hover,
+  a:active,
+  a:focus {
+    color: rgb(var(--lsd-text-primary));
+  }
+`

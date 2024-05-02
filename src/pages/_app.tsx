@@ -42,6 +42,10 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
               src: local('fonts/Helvetica.ttf') format('ttf');
             }
 
+            :root {
+              --lsd-text-secondary: 255, 255, 255;
+            }
+
             html,
             body {
               background: white;
@@ -78,21 +82,6 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
               margin: 0;
               padding: 0;
               word-break: keep-all;
-            }
-
-            h1 {
-              font-weight: 400;
-              line-height: 116px;
-            }
-
-            h2 {
-              font-weight: 400;
-              line-height: 130%;
-            }
-
-            h3 {
-              font-weight: 400;
-              line-height: normal;
             }
           `}
         />

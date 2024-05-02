@@ -1,17 +1,37 @@
 import { FooterCopyright } from '@/components/Footer/Footer.Copyright'
+import { FooterLinksItems } from '@/configs/data.configs'
+import { Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
+import Link from 'next/link'
+import { FooterContent } from './Footer.Section'
 
 export const FooterInfoPanel = () => {
   return (
     <Wrapper>
       <FooterCopyright />
+      <FooterContent>
+        {FooterLinksItems.info.links.map((item, index) => (
+          <Link key={'info-' + index} href={item.href}>
+            <Typography variant="body2">{item.label}</Typography>
+          </Link>
+        ))}
+      </FooterContent>
+      <FooterContent>
+        {FooterLinksItems.social.links.map((item, index) => (
+          <Link target="_blank" key={'info-' + index} href={item.href}>
+            <Typography variant="body2">{item.label}</Typography>
+          </Link>
+        ))}
+      </FooterContent>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
   display: flex;
-  align-items: baseline;
-  border-top: 1px solid rgb(var(--lsd-theme-primary));
-  padding-top: 16px;
+  height: 132px;
+  box-sizing: border-box;
+
+  border: 1px solid rgb(var(--lsd-theme-primary));
+  border-top: none;
 `

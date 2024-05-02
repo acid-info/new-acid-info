@@ -6,10 +6,7 @@ import { siteConfigs } from '../../configs/site.configs'
 export const FooterCopyright = () => (
   <OrgInfo>
     <Typography component="div" genericFontFamily="sans-serif" variant="body2">
-      {siteConfigs.title} ©{new Date().getFullYear()}
-    </Typography>
-    <Typography component="div" genericFontFamily="sans-serif" variant="body2">
-      All rights reserved.
+      {siteConfigs.title}
     </Typography>
   </OrgInfo>
 )

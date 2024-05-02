@@ -1,6 +1,8 @@
 import { breakpoints } from '@/configs/ui.configs'
 import styled from '@emotion/styled'
 import React from 'react'
+import { useRecoilValue } from 'recoil'
+import themeState from '../../../atom/theme/themeState'
 
 export type HomePageProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
@@ -8,7 +10,10 @@ export type HomePageProps = React.DetailedHTMLProps<
 >
 
 export const Home: React.FC<HomePageProps> = ({ children, ...props }) => {
-  return <Root {...props}></Root>
+  const theme = useRecoilValue(themeState)
+  console.log(theme)
+
+  return <Root {...props}>Hello World</Root>
 }
 
 const Root = styled.div`

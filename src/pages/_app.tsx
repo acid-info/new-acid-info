@@ -4,6 +4,7 @@ import { NextComponentType, NextPageContext } from 'next'
 import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { ReactNode } from 'react'
+import { RecoilRoot } from 'recoil'
 
 type NextLayoutComponentType<P = {}> = NextComponentType<
   NextPageContext,
@@ -23,7 +24,7 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
     ((page: ReactNode) => <DefaultLayout>{page}</DefaultLayout>)
 
   return (
-    <>
+    <RecoilRoot>
       <Head>
         <title>Acid.Info</title>
         <meta
@@ -93,6 +94,6 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
         `}
       />
       {getLayout(<Component {...pageProps} />)}
-    </>
+    </RecoilRoot>
   )
 }

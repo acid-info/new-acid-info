@@ -1,7 +1,12 @@
+import { Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
 
 export const FooterNewsletter = () => {
-  return <Container>Subscribe to Newsletter</Container>
+  return (
+    <Container>
+      <Typography variant="body2">Subscribe to Newsletter</Typography>
+    </Container>
+  )
 }
 
 const Container = styled.div`

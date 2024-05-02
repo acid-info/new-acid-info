@@ -13,5 +13,9 @@ export const HomeContainer: React.FC<HomePageProps> = ({
 }) => {
   const theme = useRecoilValue(themeState)
 
-  return <div {...props}>Hello World</div>
+  return (
+    <div {...props}>
+      <img src="/home/placeholder.png" alt="logo" />
+    </div>
+  )
 }

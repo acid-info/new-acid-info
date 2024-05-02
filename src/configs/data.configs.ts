@@ -2,7 +2,9 @@ import { siteConfigs } from '@/configs/site.configs'
 import { FooterGroup } from '@/types/ui.types'
 
 export const NavLinksItems = [
-  { label: 'Articles', href: '/search?type=article' },
+  { label: 'Articles', href: '/articles' },
+  { label: 'Media', href: '/media' },
+  { label: 'Shop', href: '/shop' },
   { label: 'About', href: '/about' },
 ]
 

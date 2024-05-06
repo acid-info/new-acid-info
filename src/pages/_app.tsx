@@ -37,11 +37,6 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
         </Head>
         <Global
           styles={css`
-            @font-face {
-              font-family: 'Helvetica';
-              src: local('fonts/Helvetica.ttf') format('ttf');
-            }
-
             :root {
               --lsd-text-secondary: 255, 255, 255;
             }
@@ -53,8 +48,6 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
               margin: 0;
               width: 100%;
               height: 100%;
-              font-family: 'Helvetica';
-
               -webkit-font-smoothing: antialiased;
               -moz-osx-font-smoothing: grayscale;
             }

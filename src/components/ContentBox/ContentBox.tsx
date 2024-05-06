@@ -1,3 +1,4 @@
+import { breakpoints } from '@/configs/ui.configs'
 import { Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
 import { Grid } from '../Grid'
@@ -10,12 +11,18 @@ const Container = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
 
-  border: 1px solid rgb(var(--lsd-border-primary));
   height: 367px;
   box-sizing: border-box;
 
   margin-top: 24px;
   margin-bottom: 148px;
+
+  @media (max-width: ${breakpoints.md}px) {
+    display: flex;
+    height: auto;
+    flex-direction: column;
+    gap: 16px;
+  }
 `
 
 export default function ContentBox() {

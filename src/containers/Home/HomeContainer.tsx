@@ -1,5 +1,5 @@
 import ContentBox from '@/components/ContentBox/ContentBox'
-import { uiConfigs } from '@/configs/ui.configs'
+import { breakpoints } from '@/configs/ui.configs'
 import styled from '@emotion/styled'
 import React from 'react'
 import { useRecoilValue } from 'recoil'
@@ -10,15 +10,6 @@ export type HomePageProps = React.DetailedHTMLProps<
   HTMLDivElement
 >
 
-const TempImage = styled.img`
-  width: 100%;
-
-  @media (max-width: ${uiConfigs.maxContainerWidth + 32}px) {
-    margin-inline: 16px;
-    width: calc(100% - 32px);
-  }
-`
-
 export const HomeContainer: React.FC<HomePageProps> = ({
   children,
   ...props
@@ -26,9 +17,23 @@ export const HomeContainer: React.FC<HomePageProps> = ({
   const theme = useRecoilValue(themeState)
 
   return (
-    <div {...props}>
+    <Container {...props}>
       <TempImage src="/home/placeholder.png" alt="logo" width={'100%'} />
       <ContentBox />
-    </div>
+    </Container>
   )
 }
+
+const Container = styled.div`
+  @media (max-width: ${breakpoints.md}px) {
+    margin-inline: 16px;
+  }
+`
+
+const TempImage = styled.img`
+  width: 100%;
+
+  @media (max-width: ${breakpoints.md}px) {
+    display: none;
+  }
+`

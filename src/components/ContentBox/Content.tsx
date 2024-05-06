@@ -1,3 +1,4 @@
+import { breakpoints } from '@/configs/ui.configs'
 import { Button, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
 
@@ -14,9 +15,16 @@ const Container = styled.div`
 
   height: 100%;
   justify-content: space-between;
+  border: 1px solid rgb(var(--lsd-border-primary));
 
   &:not(:last-of-type) {
-    border-right: 1px solid rgb(var(--lsd-border-primary));
+    border-right: none;
+  }
+
+  @media (max-width: ${breakpoints.md}px) {
+    &:not(:last-of-type) {
+      border-right: 1px solid rgb(var(--lsd-border-primary));
+    }
   }
 `
 

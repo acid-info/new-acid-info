@@ -50,6 +50,7 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
               height: 100%;
               -webkit-font-smoothing: antialiased;
               -moz-osx-font-smoothing: grayscale;
+              font-family: serif;
             }
 
             #__next {

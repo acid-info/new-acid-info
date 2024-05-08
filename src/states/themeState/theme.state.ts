@@ -9,7 +9,7 @@ export type ThemeState = {
 
 export const defaultThemeState: ThemeState = {
   mode: 'light',
-  genericFontFamily: 'sans-serif',
+  genericFontFamily: 'serif',
 }
 
 const themeState =
@@ -23,7 +23,7 @@ const wrapThemeState = (state: State<ThemeState>) => ({
   get: () => state.value,
   setMode: (value: ThemeState['mode']) => state.mode.set(value),
   setGenericFontFamily: (value: ThemeState['genericFontFamily']) =>
-    state.genericFontFamily.set('sans-serif'),
+    state.genericFontFamily.set('serif'),
   toggleMode: () =>
     state.mode.set(state.mode.get() === 'dark' ? 'light' : 'dark'),
 })

@@ -1,6 +1,5 @@
 import { Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
-import clsx from 'clsx'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -12,14 +11,13 @@ export const NavbarLinks = ({ links }: Props) => {
   const router = useRouter()
   const { pathname } = router
 
+  console.log('pathname', pathname)
+  console.log('links', links)
+
   return (
     <Container>
       {links.map((link, idx) => (
-        <NavLink
-          key={idx}
-          href={link.href}
-          className={clsx(pathname === link.href && 'active')}
-        >
+        <NavLink key={idx} href={link.href} isActive={pathname === link.href}>
           <Typography variant="label1" component="span">
             {link.label}
           </Typography>
@@ -50,7 +48,7 @@ const Container = styled.div`
   }
 `
 
-const NavLink = styled(Link)`
+const NavLink = styled(Link)<{ isActive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -59,4 +57,12 @@ const NavLink = styled(Link)`
   border: 1px solid rgb(var(--lsd-border-primary));
   height: 32px;
   box-sizing: border-box;
+
+  background-color: ${({ isActive }) =>
+    isActive ? 'rgb(var(--lsd-theme-primary))' : 'transparent'};
+
+  & > span {
+    color: ${({ isActive }) =>
+      isActive ? 'white' : 'rgb(var(--lsd-text-primary))'};
+  }
 `

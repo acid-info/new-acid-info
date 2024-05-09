@@ -1,4 +1,4 @@
-import { breakpoints } from '@/configs/ui.configs'
+import { breakpoints, uiConfigs } from '@/configs/ui.configs'
 import { Button, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
 import React, { useState } from 'react'
@@ -77,6 +77,7 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: calc(100vh - ${uiConfigs.navbarRenderedHeight}px);
 
   margin-top: 64px;
 

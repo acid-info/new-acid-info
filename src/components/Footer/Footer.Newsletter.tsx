@@ -1,3 +1,4 @@
+import { breakpoints } from '@/configs/ui.configs'
 import { Button, TextField, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
 
@@ -27,6 +28,17 @@ const Container = styled.div`
   border: 1px solid rgb(var(--lsd-border-primary));
 
   align-items: flex-start;
+
+  @media (max-width: ${breakpoints.md}px) {
+    flex-direction: column;
+    height: fit-content;
+    gap: 16px;
+    padding: 8px 8px 60px 8px;
+
+    .lsd-text-field {
+      width: unset !important;
+    }
+  }
 `
 
 const UserInput = styled.div`

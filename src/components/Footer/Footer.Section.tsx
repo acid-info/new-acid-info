@@ -1,4 +1,4 @@
-import { uiConfigs } from '@/configs/ui.configs'
+import { breakpoints, uiConfigs } from '@/configs/ui.configs'
 import styled from '@emotion/styled'
 
 export const FooterSection = styled.div`
@@ -30,7 +30,7 @@ export const FooterContent = styled.div`
   gap: 8px;
 
   width: 100%;
-
+  box-sizing: border-box;
   padding: 8px;
 
   &:not(:last-child) {
@@ -43,5 +43,9 @@ export const FooterContent = styled.div`
   a:active,
   a:focus {
     color: rgb(var(--lsd-text-primary));
+  }
+
+  @media (max-width: ${breakpoints.md}px) {
+    height: 144px;
   }
 `

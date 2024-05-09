@@ -11,9 +11,6 @@ export const NavbarLinks = ({ links }: Props) => {
   const router = useRouter()
   const { pathname } = router
 
-  console.log('pathname', pathname)
-  console.log('links', links)
-
   return (
     <Container>
       {links.map((link, idx) => (

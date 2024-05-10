@@ -56,10 +56,16 @@ export const MediaContainer: React.FC<MediaPageProps> = ({
           renderPhoto={({ photo, wrapperStyle, renderDefaultPhoto }) => (
             <GalleryItem style={{ position: 'relative', ...wrapperStyle }}>
               {renderDefaultPhoto({ wrapped: true })}
-              {photo.title && <DownloadLink>{photo.title}</DownloadLink>}
-              <a download href={photo.src} target="_blank">
-                <Typography variant="body2">download</Typography>
-              </a>
+              {photo.title && <Typography>{photo.title}</Typography>}
+              <DownloadLink
+                variant="body2"
+                component="a"
+                download
+                href={photo.src}
+                target="_blank"
+              >
+                download
+              </DownloadLink>
             </GalleryItem>
           )}
         />
@@ -109,7 +115,7 @@ const GalleryItem = styled.div`
   padding-bottom: 16px;
 `
 
-const DownloadLink = styled.a`
+const DownloadLink = styled(Typography)`
   color: rgb(var(--lsd-text-primary)) !important;
 `
 

@@ -117,6 +117,10 @@ const TitleContainer = styled.div`
   align-items: center;
 
   margin-bottom: 76px;
+
+  @media (max-width: ${breakpoints.md}px) {
+    margin-bottom: 40px;
+  }
 `
 
 const GridContainer = styled.div`

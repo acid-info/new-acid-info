@@ -14,7 +14,7 @@ export const NavbarLinks = ({ links }: Props) => {
   return (
     <Container>
       {links.map((link, idx) => (
-        <NavLink key={idx} href={link.href} isActive={pathname === link.href}>
+        <NavLink key={idx} href={link.href} isactive={pathname === link.href}>
           <Typography variant="label1" component="span">
             {link.label}
           </Typography>
@@ -45,7 +45,7 @@ const Container = styled.div`
   }
 `
 
-const NavLink = styled(Link)<{ isActive: boolean }>`
+const NavLink = styled(Link)<{ isactive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -55,11 +55,11 @@ const NavLink = styled(Link)<{ isActive: boolean }>`
   height: 32px;
   box-sizing: border-box;
 
-  background-color: ${({ isActive }) =>
-    isActive ? 'rgb(var(--lsd-theme-primary))' : 'transparent'};
+  background-color: ${({ isactive }) =>
+    isactive ? 'rgb(var(--lsd-theme-primary))' : 'transparent'};
 
   & > span {
-    color: ${({ isActive }) =>
-      isActive ? 'white' : 'rgb(var(--lsd-text-primary))'};
+    color: ${({ isactive }) =>
+      isactive ? 'white' : 'rgb(var(--lsd-text-primary))'};
   }
 `

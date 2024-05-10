@@ -173,6 +173,15 @@ const ImageContainer = styled.div`
 
 const Title = styled(Typography)`
   height: 80px;
+
+  color: rgb(var(--lsd-text-primary));
+
+  &:hover,
+  &:visited,
+  &:active,
+  &:focus {
+    color: rgb(var(--lsd-text-primary)) !important;
+  }
 `
 
 const CreatedAt = styled(Typography)`

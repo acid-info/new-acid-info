@@ -5,6 +5,7 @@ import { pushQuad } from '@/webCraft/render.js'
 //
 // This file contains all available block types and their properties.
 // ==========================================
+export const SELECTOR_WIDTH_PX = 40;
 
 // Direction enumeration
 const DIRECTION = {};

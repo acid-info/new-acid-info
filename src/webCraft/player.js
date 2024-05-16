@@ -1,4 +1,4 @@
-import { BLOCK } from "./shared/blocks.js"
+import { BLOCK, SELECTOR_WIDTH_PX } from "./shared/blocks.js"
 import Vector, { rectRectCollide, lineRectCollide } from "./shared/helpers.js"
 
 // ==========================================
@@ -62,6 +62,8 @@ Player.prototype.setMaterialSelector = function( id )
 {
 	var tableRow = document.getElementById( id ).getElementsByTagName( "tr" )[0];
 	var texOffset = 0;
+	var numberOfElements = 16;
+	var widthOfElement = SELECTOR_WIDTH_PX;
 	tableRow.innerHTML = '';
 
 	for ( var mat in BLOCK )
@@ -70,6 +72,7 @@ Player.prototype.setMaterialSelector = function( id )
 		{
 			var selector = document.createElement( "td" );
 			selector.style.backgroundPosition = texOffset + "px 0px";
+			selector.style.backgroundSize = `${widthOfElement * numberOfElements}px ${widthOfElement}px`
 
 			var pl = this;
 			selector.material = BLOCK[mat];
@@ -89,7 +92,7 @@ Player.prototype.setMaterialSelector = function( id )
 			}
 
 			tableRow.appendChild( selector );
-			texOffset -= 70;
+			texOffset -= SELECTOR_WIDTH_PX;
 		}
 	}
 }

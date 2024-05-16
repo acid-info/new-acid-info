@@ -1,7 +1,9 @@
+import { DEFAULT_WORLD_STRING } from '@/components/Minecraft/Minecraft.defaultWorld'
 import { MinecraftGameState } from '@/components/Minecraft/Minecraft.types'
 import Physics from '@/webCraft/physics'
 import Player from '@/webCraft/player'
 import Renderer from '@/webCraft/render'
+import { SELECTOR_WIDTH_PX } from '@/webCraft/shared/blocks'
 import World from '@/webCraft/world'
 import styled from '@emotion/styled'
 import { MouseEventHandler, useEffect, useState } from 'react'
@@ -11,7 +13,7 @@ export default function Minecraft() {
 
   const initWorldState = () => {
     const world = new World(16, 16, 16)
-    world.createFlatWorld(6)
+    world.createFromString(DEFAULT_WORLD_STRING)
 
     const renderer = new Renderer('minecraftRenderSurface')
     renderer.setWorld(world, 8)
@@ -81,7 +83,7 @@ export default function Minecraft() {
 }
 
 const Body = styled.div`
-  height: 600px;
+  height: 360px;
   width: 100%;
   background: url('/minecraft/background.png');
   position: relative;
@@ -92,12 +94,11 @@ const Canvas = styled.canvas`
   height: 100%;
 `
 
-const itemSelectorDimension = 70
 const ItemsSelectorTableContainer = styled.div`
   position: absolute;
   top: 0;
   width: 100%;
-  height: ${itemSelectorDimension}px;
+  height: ${SELECTOR_WIDTH_PX}px;
   display: flex;
   justify-content: center;
 `
@@ -106,11 +107,11 @@ const ItemsSelectorTable = styled.table`
   background: rgba(0, 0, 0, 0.6);
 
   & > tr {
-    height: ${itemSelectorDimension}px;
+    height: ${SELECTOR_WIDTH_PX}px;
   }
 
   & > tr > td {
-    width: ${itemSelectorDimension}px;
+    width: ${SELECTOR_WIDTH_PX}px;
     margin: 0;
     padding: 0;
     cursor: pointer;

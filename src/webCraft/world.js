@@ -63,12 +63,14 @@ World.prototype.createFlatWorld = function( height )
 
 World.prototype.createFromString = function( str )
 {
+	const [spawnX, spawnY, spawnZ, world] = str.split(",")
+	this.spawnPoint = new Vector(Number(spawnX), Number(spawnY), Number(spawnZ));
 	var i = 0;
 	
 	for ( var x = 0; x < this.sx; x++ ) {
 		for ( var y = 0; y < this.sy; y++ ) {
 			for ( var z = 0; z < this.sz; z++ ) {
-				this.blocks[x][y][z] = BLOCK.fromId( str.charCodeAt( i ) - 97 );
+				this.blocks[x][y][z] = BLOCK.fromId( world.charCodeAt( i ) - 97 );
 				i = i + 1;
 			}
 		}

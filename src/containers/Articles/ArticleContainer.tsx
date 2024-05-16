@@ -1,26 +1,22 @@
 import { breakpoints } from '@/configs/ui.configs'
-import { Button, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
 import React from 'react'
 
 export type ArticlePageProps = React.DetailedHTMLProps<
   React.HTMLAttributes<HTMLDivElement>,
   HTMLDivElement
->
+> & {
+  content: string
+  authors: string[]
+}
 
 export const ArticleContainer: React.FC<ArticlePageProps> = ({
+  content,
+  authors,
   children,
   ...props
 }) => {
-  return (
-    <Container {...props}>
-      <Typography variant="body2">12 Apr 2023</Typography>
-      <Typography variant="h1">
-        In 2019 I co-created the game Cheeze Wizards. A project aimed to dig
-        deeper into blockchain native games
-      </Typography>
-    </Container>
-  )
+  return <Container {...props}>{children}</Container>
 }
 
 const Container = styled.div`
@@ -34,58 +30,115 @@ const Container = styled.div`
   margin-top: 60px;
   min-height: 100vh;
 
-  @media (max-width: ${breakpoints.md}px) {
-    margin-inline: 10px;
-    margin-top: 16px;
-
-    h1 {
-    }
+  h1 {
+    font-size: 40px;
+    line-height: 48px;
+    margin-bottom: 24px;
   }
-`
 
-const ContentContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-sizing: border-box;
-
-  margin-top: 84px;
-  margin-bottom: 82px;
-
-  width: 608px;
-  margin-inline: auto;
-  text-align: center;
-
-  @media (max-width: ${breakpoints.md}px) {
+  h2 {
+    font-size: 24px;
+    line-height: 32px;
+    margin-top: 8px;
+    margin-bottom: 16px;
     width: 100%;
-    margin-top: 40px;
-    margin-bottom: 34px;
   }
-`
 
-const SubTitleContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  pre {
+    margin: 0;
 
-  @media (max-width: ${breakpoints.md}px) {
-    h2 {
-      font-size: var(--lsd-h5-fontSize);
-      line-height: var(--lsd-h5-lineHeight);
+    &:before,
+    &:after {
+      content: '***';
+      display: flex;
+      justify-content: center;
+      color: rgb(var(--lsd-text-primary));
+      font-size: 16px;
+      line-height: 24px;
+    }
+
+    code {
+      margin-bottom: 8px;
+    }
+    margin-bottom: 16px;
+  }
+
+  code {
+    color: rgb(var(--lsd-text-primary));
+    font-family: Courier, monospace;
+    font-size: 16px;
+    line-height: 24px;
+    display: flex;
+
+    white-space: pre-wrap;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  img {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+
+  p {
+    color: rgb(var(--lsd-text-primary));
+    margin-bottom: 16px;
+    font-size: 16px;
+  }
+
+  audio {
+    width: 100%;
+    margin-bottom: 16px;
+  }
+
+  .date {
+    font-size: 14px;
+    text-align: center;
+    line-height: 20px;
+    margin-bottom: 24px;
+  }
+
+  .author {
+    display: flex;
+    justify-content: center;
+    font-family: sans-serif;
+    align-items: center;
+    gap: 16px;
+
+    color: rgb(var(--lsd-text-primary));
+    margin-bottom: 24px;
+
+    .profile {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .avatar {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+        border: 1px solid rgb(var(--lsd-border-primary));
+        border-radius: 50%;
+        font-size: 11px;
+        font-family: sans-serif;
+      }
+
+      p {
+        margin-bottom: unset;
+        font-size: 14px;
+        line-height: 20px;
+      }
     }
   }
-`
-
-const ParagraphContainer = styled.div`
-  margin-top: 64px;
-  margin-bottom: 64px;
 
   @media (max-width: ${breakpoints.md}px) {
-    margin-top: 32px;
-    margin-bottom: 32px;
+    h1 {
+      font-size: 28px;
+      line-height: 36px;
+      font-size: 16px;
+      line-height: 24px;
+    }
   }
-`
-
-const CTAButton = styled(Button)`
-  width: 100%;
 `

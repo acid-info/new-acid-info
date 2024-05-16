@@ -84,6 +84,7 @@ const Container = styled.div`
     color: rgb(var(--lsd-text-primary));
     margin-bottom: 16px;
     font-size: 16px;
+    line-height: 24px;
   }
 
   audio {
@@ -101,6 +102,7 @@ const Container = styled.div`
   .author {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
     font-family: sans-serif;
     align-items: center;
     gap: 16px;
@@ -133,12 +135,44 @@ const Container = styled.div`
     }
   }
 
-  @media (max-width: ${breakpoints.md}px) {
+  @media (max-width: ${breakpoints.sm}px) {
+    width: calc(100% - 20px);
+    margin-inline: 10px;
+    margin-top: 40px;
+
     h1 {
       font-size: 28px;
       line-height: 36px;
-      font-size: 16px;
-      line-height: 24px;
+      text-align: center;
+    }
+
+    h2 {
+      font-size: 28px;
+      line-height: 36px;
+    }
+
+    code {
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    .date {
+      font-size: 12px;
+      line-height: 16px;
+    }
+
+    .author {
+      p {
+        margin-bottom: unset;
+        font-size: 12px;
+        line-height: 16px;
+      }
+    }
+
+    p {
+      margin-bottom: 14px;
+      font-size: 14px;
+      line-height: 20px;
     }
   }
 `

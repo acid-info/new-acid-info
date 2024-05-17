@@ -9,9 +9,9 @@ import Vector, { rectRectCollide, lineRectCollide } from "./shared/helpers.js"
 
 // Mouse event enumeration
 const MOUSE = {};
-MOUSE.DOWN = 1;
-MOUSE.UP = 2;
-MOUSE.MOVE = 3;
+MOUSE.DOWN = 0;
+MOUSE.UP = 1;
+MOUSE.MOVE = 2;
 
 // Constructor()
 //
@@ -49,9 +49,9 @@ Player.prototype.setInputCanvas = function( id )
 	var t = this;
 	document.onkeydown = function( e ) { if ( e.target.tagName != "INPUT" ) { t.onKeyEvent( e.keyCode, true ); return false; } }
 	document.onkeyup = function( e ) { if ( e.target.tagName != "INPUT" ) { t.onKeyEvent( e.keyCode, false ); return false; } }
-	canvas.onmousedown = function( e ) { t.onMouseEvent( e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, MOUSE.DOWN, e.which == 3 ); return false; }
-	canvas.onmouseup = function( e ) { t.onMouseEvent( e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, MOUSE.UP, e.which == 3 ); return false; }
-	canvas.onmousemove = function( e ) { t.onMouseEvent( e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, MOUSE.MOVE, e.which == 3 ); return false; }
+	canvas.onmousedown = function( e ) { console.log(e.button); t.onMouseEvent( e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, MOUSE.DOWN, e.button === 2 ); return false; }
+	canvas.onmouseup = function( e ) { t.onMouseEvent( e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, MOUSE.UP, e.button === 2 ); return false; }
+	canvas.onmousemove = function( e ) { t.onMouseEvent( e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, MOUSE.MOVE, e.button === 2 ); return false; }
 }
 
 // setMaterialSelector( id )

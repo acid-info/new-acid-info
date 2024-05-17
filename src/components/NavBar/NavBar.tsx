@@ -1,7 +1,7 @@
 import { NavbarLinks } from '@/components/NavBar/Navbar.Links'
 import { NavbarMobileMenu } from '@/components/NavBar/Navbar.MobileMenu'
 import { NavLinksItems } from '@/configs/data.configs'
-import { uiConfigs } from '@/configs/ui.configs'
+import { breakpoints, uiConfigs } from '@/configs/ui.configs'
 import styled from '@emotion/styled'
 import clsx from 'clsx'
 import Link from 'next/link'
@@ -93,6 +93,12 @@ const NavBarContainer = styled.nav<{
 
   style {
     display: none !important;
+  }
+
+  @media (max-width: ${breakpoints.lg}px) {
+    margin-inline: 10px;
+    width: calc(100% - 20px);
+    height: 60px;
   }
 `
 

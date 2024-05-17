@@ -1,8 +1,19 @@
 import { breakpoints, uiConfigs } from '@/configs/ui.configs'
-import { Button, Dropdown, Typography } from '@acid-info/lsd-react'
+import { Dropdown, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useState } from 'react'
+import {
+  CTAButton,
+  CreatedAt,
+  GridContainer,
+  GridItem,
+  ImageContainer,
+  MediaCount,
+  Title,
+  TitleContainer,
+} from './StyledComponents'
 
 export type ArticleProps = {
   title: string
@@ -79,12 +90,14 @@ export const ArticlesContainer: React.FC<ArticlesPageProps> = ({
             <CreatedAt variant="body2">
               {article.createdAt.substring(0, 10)}
             </CreatedAt>
-            <Title variant="body2" component="a" href={article.link}>
-              {article.title}
+            <Title variant="body2" component="h3">
+              <Link href={article.link}>{article.title}</Link>
             </Title>
-            <ImageContainer>
-              <Image src={article.thumbnail} alt={article.title} fill />
-            </ImageContainer>
+            <Link href={article.link}>
+              <ImageContainer>
+                <Image src={article.thumbnail} alt={article.title} fill />
+              </ImageContainer>
+            </Link>
           </GridItem>
         ))}
       </GridContainer>
@@ -109,83 +122,6 @@ const Container = styled.div`
     margin-inline: 10px;
     margin-top: 16px;
   }
-`
-
-const TitleContainer = styled.div`
-  display: flex;
-  gap: 16px;
-  align-items: center;
-
-  margin-bottom: 76px;
-
-  @media (max-width: ${breakpoints.md}px) {
-    margin-bottom: 40px;
-  }
-`
-
-const GridContainer = styled.div`
-  height: 100%;
-  width: 100%;
-
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 16px;
-
-  @media (max-width: ${breakpoints.md}px) {
-    grid-template-columns: repeat(1, 1fr);
-  }
-`
-
-const GridItem = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`
-
-const CTAButton = styled(Button)`
-  margin-top: 32px;
-  width: 100%;
-  gap: 8px;
-`
-
-const MediaCount = styled.div`
-  display: flex;
-  width: 40px;
-  height: 28px;
-
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  font-family: sans-serif;
-
-  background-color: rgb(var(--lsd-theme-primary));
-  color: white;
-  border-radius: 22px;
-`
-
-const ImageContainer = styled.div`
-  aspect-ratio: 296 / 197;
-  width: 100%;
-  height: auto;
-  position: relative;
-  overflow: hidden;
-`
-
-const Title = styled(Typography)`
-  height: 80px;
-
-  color: rgb(var(--lsd-text-primary));
-
-  &:hover,
-  &:visited,
-  &:active,
-  &:focus {
-    color: rgb(var(--lsd-text-primary)) !important;
-  }
-`
-
-const CreatedAt = styled(Typography)`
-  text-align: center;
 `
 
 const DropdownContainer = styled.div`

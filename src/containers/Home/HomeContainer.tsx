@@ -1,4 +1,6 @@
+import { ClientOnly } from '@/components/ClientOnly'
 import ContentBox from '@/components/ContentBox/ContentBox'
+import { Minecraft } from '@/components/Minecraft'
 import { breakpoints } from '@/configs/ui.configs'
 import styled from '@emotion/styled'
 import React from 'react'
@@ -18,7 +20,9 @@ export const HomeContainer: React.FC<HomePageProps> = ({
 
   return (
     <Container {...props}>
-      <TempImage src="/home/placeholder.png" alt="logo" width={'100%'} />
+      <ClientOnly>
+        <Minecraft />
+      </ClientOnly>
       <ContentBox />
     </Container>
   )

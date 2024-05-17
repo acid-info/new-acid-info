@@ -1,5 +1,6 @@
 import { DEFAULT_WORLD_STRING } from '@/components/Minecraft/Minecraft.defaultWorld'
 import { MinecraftGameState } from '@/components/Minecraft/Minecraft.types'
+import { breakpoints } from '@/configs/ui.configs'
 import Physics from '@/webCraft/physics'
 import Player from '@/webCraft/player'
 import Renderer from '@/webCraft/render'
@@ -48,7 +49,6 @@ export default function Minecraft() {
   }
 
   useEffect(() => {
-    console.log('asd')
     initWorldState()
   }, [])
 
@@ -87,6 +87,10 @@ const Body = styled.div`
   width: 100%;
   background: url('/minecraft/background.png');
   position: relative;
+
+  @media (max-width: ${breakpoints.md}px) {
+    display: none;
+  }
 `
 
 const Canvas = styled.canvas`

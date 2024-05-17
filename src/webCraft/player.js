@@ -61,6 +61,7 @@ Player.prototype.setInputCanvas = function( id )
 Player.prototype.setMaterialSelector = function( id )
 {
 	var tableRow = document.getElementById( id ).getElementsByTagName( "tr" )[0];
+	console.log(tableRow)
 	var texOffset = 0;
 	var numberOfElements = 16;
 	var widthOfElement = SELECTOR_WIDTH_PX;

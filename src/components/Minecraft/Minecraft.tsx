@@ -75,7 +75,9 @@ export default function Minecraft() {
       <Canvas id="minecraftRenderSurface" />
       <ItemsSelectorTableContainer>
         <ItemsSelectorTable id="minecraftItemSelector">
-          <tr></tr>
+          <tbody>
+            <tr></tr>
+          </tbody>
         </ItemsSelectorTable>
       </ItemsSelectorTableContainer>
     </Body>
@@ -110,11 +112,11 @@ const ItemsSelectorTableContainer = styled.div`
 const ItemsSelectorTable = styled.table`
   background: rgba(0, 0, 0, 0.6);
 
-  & > tr {
+  & tr {
     height: ${SELECTOR_WIDTH_PX}px;
   }
 
-  & > tr > td {
+  & tr > td {
     width: ${SELECTOR_WIDTH_PX}px;
     margin: 0;
     padding: 0;

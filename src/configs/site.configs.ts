@@ -1,6 +1,6 @@
 export const siteConfigs = {
   title: 'Acid.info',
-  description: 'Fostering innovation, defending digital liberties',
+  description: 'Acid is designing the future.',
   keywords: [],
   xHandle: 'ac1d_info',
   youtubeHandle: '@LogosNetwork',

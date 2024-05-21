@@ -25,6 +25,10 @@ const Main = styled.main`
   width: 100%;
   grid-column: 1 / 17;
   margin-top: ${uiConfigs.navbarRenderedHeight}px;
+
+  @media (max-width: ${breakpoints.md}px) {
+    margin-top: ${uiConfigs.navbarMobileHeight}px;
+  }
 `
 
 export default function DefaultLayout(props: PropsWithChildren) {

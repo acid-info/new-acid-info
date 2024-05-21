@@ -22,6 +22,7 @@ const Container = styled.div`
     height: auto;
     flex-direction: column;
     gap: 16px;
+    margin-top: 0;
   }
 `
 

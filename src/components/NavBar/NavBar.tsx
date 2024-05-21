@@ -2,6 +2,7 @@ import { NavbarLinks } from '@/components/NavBar/Navbar.Links'
 import { NavbarMobileMenu } from '@/components/NavBar/Navbar.MobileMenu'
 import { NavLinksItems } from '@/configs/data.configs'
 import { breakpoints, uiConfigs } from '@/configs/ui.configs'
+import { CloseIcon, IconButton, MenuIcon } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
 import clsx from 'clsx'
 import Link from 'next/link'
@@ -11,13 +12,12 @@ import { AcidIcon } from '../Icons/AcidIcon'
 
 export default function NavBar() {
   const { pathname } = useRouter()
-  const [hide, setHide] = useState(false)
   const [showMobileMenu, setShowMobileMenu] = useState(false)
 
   const className = pathname.split('/')[1] + '_page'
 
   const toggleMobileMenu = () => {
-    setShowMobileMenu(!showMobileMenu)
+    setShowMobileMenu((prev) => !prev)
   }
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export default function NavBar() {
   }, [pathname])
 
   return (
-    <Container className={clsx(hide && 'hide', className)}>
+    <Container className={clsx(className)}>
       <NavBarContainer>
         <NavbarLinks links={NavLinksItems.slice(0, 2)} />
         <Centered>
@@ -34,8 +34,17 @@ export default function NavBar() {
           </Logo>
         </Centered>
         <NavbarLinks links={NavLinksItems.slice(2, 4)} />
-        {showMobileMenu && <NavbarMobileMenu />}
       </NavBarContainer>
+      {showMobileMenu && <NavbarMobileMenu />}
+      <MobileButton>
+        <IconButton size={'small'} onClick={toggleMobileMenu}>
+          {showMobileMenu ? (
+            <CloseIcon color="primary" />
+          ) : (
+            <MenuIcon color={'primary'} />
+          )}
+        </IconButton>
+      </MobileButton>
     </Container>
   )
 }
@@ -54,8 +63,8 @@ const Container = styled.header<{
 
   transition: top 0.2s;
 
-  &.article_page,
-  &.search_page {
+  @media (max-width: ${breakpoints.md}px) {
+    height: ${uiConfigs.navbarMobileHeight}px;
   }
 `
 
@@ -98,7 +107,7 @@ const NavBarContainer = styled.nav<{
   @media (max-width: ${breakpoints.lg}px) {
     margin-inline: 10px;
     width: calc(100% - 20px);
-    height: 60px;
+    height: ${uiConfigs.navbarMobileHeight}px;
   }
 `
 
@@ -109,6 +118,10 @@ const Centered = styled.div`
   transform: translate(-50%, -50%);
 
   grid-column: 8 / span 2;
+
+  @media (max-width: ${breakpoints.sm}px) {
+    grid-column: unset;
+  }
 `
 
 const Logo = styled(Link)`
@@ -116,4 +129,25 @@ const Logo = styled(Link)`
   align-items: center;
   text-decoration: none;
   gap: 0 var(--lsd-spacing-8);
+`
+
+const MobileButton = styled.div`
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  > * {
+    background: rgb(var(--lsd-surface-primary));
+
+    :last-of-type {
+      margin-left: -1px;
+    }
+  }
+
+  @media (max-width: ${breakpoints.sm}px) {
+    display: flex;
+    position: fixed;
+    top: 16px;
+    right: 10px;
+  }
 `

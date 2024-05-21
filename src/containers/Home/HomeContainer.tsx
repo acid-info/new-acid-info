@@ -29,15 +29,7 @@ export const HomeContainer: React.FC<HomePageProps> = ({
 }
 
 const Container = styled.div`
-  @media (max-width: ${breakpoints.md}px) {
-    margin-inline: 16px;
-  }
-`
-
-const TempImage = styled.img`
-  width: 100%;
-
-  @media (max-width: ${breakpoints.md}px) {
-    display: none;
+  @media (max-width: ${breakpoints.lg}px) {
+    margin-inline: 10px;
   }
 `

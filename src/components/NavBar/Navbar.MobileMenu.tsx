@@ -1,12 +1,11 @@
-import { NavbarLinks } from '@/components/NavBar/Navbar.Links'
 import { NavLinksItems } from '@/configs/data.configs'
-import { uiConfigs } from '@/configs/ui.configs'
+import { breakpoints, uiConfigs } from '@/configs/ui.configs'
 import styled from '@emotion/styled'
+import Link from 'next/link'
 import { useEffect } from 'react'
+import { FooterInfoPanel } from '../Footer/Footer.InfoPanel'
 
-interface Props {}
-
-export const NavbarMobileMenu = (props: Props) => {
+export const NavbarMobileMenu = () => {
   useEffect(() => {
     if (typeof window === 'undefined') return
     document.documentElement.style.overflow = 'hidden'
@@ -18,7 +17,14 @@ export const NavbarMobileMenu = (props: Props) => {
   return (
     <NavbarMobileMenuContainer>
       <InnerContainer>
-        <NavbarLinks links={NavLinksItems} />
+        {NavLinksItems.map((link, idx) => (
+          <NavLink key={idx} href={link.href}>
+            {link.label}
+          </NavLink>
+        ))}
+        <FooterContainer>
+          <FooterInfoPanel />
+        </FooterContainer>
       </InnerContainer>
     </NavbarMobileMenuContainer>
   )
@@ -26,27 +32,58 @@ export const NavbarMobileMenu = (props: Props) => {
 
 const NavbarMobileMenuContainer = styled.div`
   position: fixed;
-  top: ${uiConfigs.navbarRenderedHeight - 1}px;
+  padding-top: 45px;
+  top: ${uiConfigs.navbarMobileHeight}px;
   left: 0;
   width: 100%;
-  height: calc(100vh - ${uiConfigs.navbarRenderedHeight - 2}px);
+  height: calc(100% - 60px);
+
   z-index: 100;
+  background: rgb(var(--lsd-surface-primary));
   overflow-y: auto;
 
-  @media (min-width: ${uiConfigs.maxContainerWidth}px) {
+  @media (min-width: ${breakpoints.sm}px) {
     display: none;
   }
 `
 
 const InnerContainer = styled.div`
-  height: 100%;
-  width: calc(100% - 32px);
+  width: calc(100% - 20px);
   margin: auto;
 
   display: flex;
   flex-direction: column;
 
-  > * {
-    margin-top: 16px;
+  padding-bottom: 60px;
+`
+
+const NavLink = styled(Link)`
+  border: 1px solid rgb(var(--lsd-border-primary));
+  width: 100%;
+  height: 96px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: rgb(var(--lsd-text-primary));
+
+  &,
+  &:visited,
+  &:hover,
+  &:active,
+  &:focus {
+    color: rgb(var(--lsd-text-primary));
+  }
+
+  &:not(:last-of-type) {
+    border-bottom: none;
+  }
+`
+
+const FooterContainer = styled.div`
+  margin-top: 60px;
+
+  & > div {
+    border-top: 1px solid rgb(var(--lsd-border-primary));
   }
 `

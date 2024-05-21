@@ -1,3 +1,4 @@
+import { breakpoints } from '@/configs/ui.configs'
 import { Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
 import Link from 'next/link'
@@ -42,6 +43,10 @@ const Container = styled.div`
   a:focus,
   a.active {
     text-decoration: underline;
+  }
+
+  @media (max-width: ${breakpoints.sm}px) {
+    display: none;
   }
 `
 

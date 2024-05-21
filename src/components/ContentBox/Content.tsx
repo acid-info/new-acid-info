@@ -1,10 +1,12 @@
 import { breakpoints } from '@/configs/ui.configs'
 import { Button, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
+import Link from 'next/link'
 
 type Props = {
   title: string
   children: React.ReactNode
+  link: string
 }
 
 const Container = styled.div`
@@ -25,6 +27,10 @@ const Container = styled.div`
     &:not(:last-of-type) {
       border-right: 1px solid rgb(var(--lsd-border-primary));
     }
+  }
+
+  button {
+    width: 100%;
   }
 `
 
@@ -50,16 +56,18 @@ const ChildrenWrapper = styled.div`
   scrollbar-width: thin;
 `
 
-export default function Content({ title, children }: Props) {
+export default function Content({ title, children, link }: Props) {
   return (
     <Container>
       <Wrapper>
         <Title variant="body2">{title}</Title>
         <ChildrenWrapper>{children}</ChildrenWrapper>
       </Wrapper>
-      <Button size="large" variant="filled">
-        See more
-      </Button>
+      <Link href={link}>
+        <Button size="large" variant="filled">
+          See more
+        </Button>
+      </Link>
     </Container>
   )
 }

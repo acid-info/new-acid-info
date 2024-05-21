@@ -28,7 +28,7 @@ const Container = styled.div`
 export default function ContentBox() {
   return (
     <Container>
-      <Content title="Posts">
+      <Content title="Posts" link="/articles">
         <PostPreview
           thumbnail="/home/post-preview.png"
           date="2021-09-01"
@@ -40,12 +40,12 @@ export default function ContentBox() {
           description="In 2019 I co-created the game Cheeze Wizards. A project aimed to dig deeper into blockchain native games. After CryptoKitties, we were motivated to explore what other game experiences could be created with blockchain technology."
         />
       </Content>
-      <Content title="Pictures">
+      <Content title="Pictures" link="/media">
         <PicturePreview thumbnail="/home/picture-preview.png" />
         <PicturePreview thumbnail="/home/picture-preview.png" />
         <PicturePreview thumbnail="/home/picture-preview.png" />
       </Content>
-      <Content title="Info">
+      <Content title="Info" link="/about">
         <Typography variant="body2">
           {`Acid is designing the future. The future is a second enlightenment of
 the digital world.
@@ -62,7 +62,7 @@ We believe no one is free until we are all free, because no one is an island: we
         `}
         </Typography>
       </Content>
-      <Content title="Products">
+      <Content title="Products" link="/shop">
         <Grid columns={2}>
           <ProductPreview
             thumbnail="/home/product-preview.png"

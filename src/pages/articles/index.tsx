@@ -1,3 +1,4 @@
+import { SEO } from '@/components/SEO'
 import { ArticleProps, ArticlesContainer } from '@/containers/Articles'
 import articles from '@/data/articles.json'
 
@@ -15,8 +16,9 @@ export async function getStaticProps() {
 
 export default function MediaPage({ articles }: Props) {
   return (
-    <div>
+    <>
+      <SEO title="Articles | Acid.info" pagePath={`/articles`} />
       <ArticlesContainer articles={articles} />
-    </div>
+    </>
   )
 }

@@ -1,3 +1,4 @@
+import { SEO } from '@/components/SEO'
 import { MediaContainer, MediaPhotoProps } from '@/containers/Media'
 import photos from '@/data/media.json'
 
@@ -15,8 +16,9 @@ export async function getStaticProps() {
 
 export default function MediaPage({ photos }: Props) {
   return (
-    <div>
+    <>
+      <SEO title="Media | Acid.info" pagePath={`/media`} />
       <MediaContainer photos={photos} />
-    </div>
+    </>
   )
 }

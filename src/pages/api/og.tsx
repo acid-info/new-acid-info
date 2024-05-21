@@ -1,4 +1,3 @@
-import { removeSlashAndCapitalize } from '@/utils/og.utils'
 import { ImageResponse } from '@vercel/og'
 import { handleMethodNotAllowedResponse } from 'next/dist/server/future/route-modules/helpers/response-handlers'
 import { NextRequest } from 'next/server'
@@ -28,7 +27,7 @@ export default async function handler(request: NextRequest) {
           height: '100%',
           justifyContent: 'flex-start',
           backgroundColor: '#fff',
-          color: '#000',
+          color: '#1400ff',
           position: 'relative',
           fontFamily: 'Helvetica',
           padding: '40px',
@@ -45,65 +44,25 @@ export default async function handler(request: NextRequest) {
             style={{
               display: 'flex',
               alignItems: 'flex-start',
-              fontSize: '53px',
+              fontSize: '54px',
             }}
           >
             Acid.info
-            <div
-              style={{
-                verticalAlign: 'super',
-                fontSize: '30px',
-                position: 'relative',
-                top: '-10px',
-                left: '-6px',
-                transform: 'rotate(180deg)',
-              }}
-            >
-              ©
-            </div>
           </div>
 
-          <div style={{ fontSize: '53px', opacity: '0.3' }}>
-            Fostering innovation, defending digital liberties
+          <div style={{ fontSize: '42px', marginTop: '20px' }}>
+            The future is a second enlightenment of the digital world.
           </div>
 
-          {pagePath === '/' ? null : pagePath === '/services' ? (
-            <div style={{ fontSize: '50px', marginTop: '80px' }}>Services</div>
-          ) : pagePath === '/jobs' ? (
-            <div style={{ fontSize: '50px', marginTop: '80px' }}>Jobs</div>
-          ) : (
-            <div
-              style={{
-                fontSize: '50px',
-                display: 'flex',
-                alignItems: 'center',
-                gap: '24px',
-                marginTop: '80px',
-              }}
-            >
-              <div style={{ opacity: '0.4' }}>Porfolio</div>
-              <div>/</div>
-              <div>{removeSlashAndCapitalize(pagePath)}</div>
-            </div>
-          )}
-        </div>
-        <div
-          style={{
-            display: 'flex',
-            width: '100vw',
-            height: '50vh',
-            position: 'absolute',
-            bottom: 0,
-            left: 0,
-          }}
-        >
-          <img
-            src="https://free.technology/og/og-asset.png"
-            width={'100%'}
-            height={'100%'}
-            alt="og-asset"
-            style={{ objectFit: 'cover' }}
-          />
+          {pagePath === '/' ? null : pagePath === '/media' ? (
+            <div style={{ fontSize: '50px', marginTop: '80px' }}>Media</div>
+          ) : pagePath === '/articles' ? (
+            <div style={{ fontSize: '50px', marginTop: '80px' }}>Articles</div>
+          ) : pagePath === '/about' ? (
+            <div style={{ fontSize: '50px', marginTop: '80px' }}>About</div>
+          ) : pagePath === '/shop' ? (
+            <div style={{ fontSize: '50px', marginTop: '80px' }}>Shop</div>
+          ) : null}
         </div>
       </div>
     ),

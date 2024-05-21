@@ -1,9 +1,11 @@
+import { SEO } from '@/components/SEO'
 import { HomeContainer } from '@/containers/Home'
 
 export default function HomePage() {
   return (
-    <div>
+    <>
+      <SEO />
       <HomeContainer />
-    </div>
+    </>
   )
 }

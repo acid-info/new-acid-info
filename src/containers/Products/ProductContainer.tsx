@@ -14,7 +14,7 @@ const ProductContainer: FC<ProductContainerProps> = (props) => {
   return (
     <Container>
       <Link href={`/products/${id}`}>
-        <img src={imgLink} alt={title} />
+        <Image src={imgLink} alt={title} />
         <Typography
           component="p"
           style={{
@@ -41,6 +41,8 @@ const Container = styled.div`
   border: 1px solid rgb(var(--lsd-theme-primary));
   border-right-width: 0;
   border-bottom-width: 0;
+  display: flex;
+  justify-content: center;
 
   &:hover {
     background-color: rgb(var(--lsd-theme-primary));

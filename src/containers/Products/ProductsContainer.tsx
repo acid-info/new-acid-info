@@ -9,6 +9,7 @@ import { breakpoints, uiConfigs } from '@/configs/ui.configs'
 import ProductContainer from '@/containers/Products/ProductContainer'
 import { MockShopTagResponse } from '@/pages/shop/shop.mock.data'
 import { Product } from '@/types/product.types'
+import { arrayIncludesAnyElementFromOtherArray } from '@/utils/general.utils'
 import {
   Button,
   Checkbox,
@@ -93,9 +94,18 @@ const ProductsContainer: FC<ProductsContainerProps> = (props) => {
         <SortDropdown sortBy={[ESortingType.DATE]} onChange={onSortChange} />
       </DropdownContainer>
       <GridContainer>
-        {productList.map((product) => (
-          <ProductContainer key={product.id} product={product} />
-        ))}
+        {productList.map((product) => {
+          // @TODO Remove this, temporary until Backend with SQL can do it properly and efficiently
+          const found = arrayIncludesAnyElementFromOtherArray(
+            product.tags,
+            checkedItems,
+          )
+          if (!found) {
+            return null
+          }
+
+          return <ProductContainer key={product.id} product={product} />
+        })}
       </GridContainer>
       <CTAButton size="large" variant="filled">
         See more

@@ -1,3 +1,4 @@
+import { ESortingType, SortDropdown } from '@/components/SortDropdown'
 import { breakpoints, uiConfigs } from '@/configs/ui.configs'
 import { Dropdown, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
@@ -36,7 +37,6 @@ export const ArticlesContainer: React.FC<ArticlesPageProps> = ({
   ...props
 }) => {
   const [itemsToShow, setItemsToShow] = useState(DEFAULT_ARTICLES_COUNT)
-  const [sortBy, setSortBy] = useState('new-to-old')
 
   const [showSeeMore, setShowSeeMore] = useState(
     articles?.length > DEFAULT_ARTICLES_COUNT,
@@ -58,21 +58,7 @@ export const ArticlesContainer: React.FC<ArticlesPageProps> = ({
         <MediaCount>{articles?.length}</MediaCount>
       </TitleContainer>
       <DropdownContainer>
-        <Dropdown
-          value={sortBy}
-          onChange={(value) => setSortBy(value as string)}
-          options={[
-            {
-              name: 'Old to New',
-              value: 'old-to-new',
-            },
-            {
-              name: 'New to Old',
-              value: 'new-to-old',
-            },
-          ]}
-          size="medium"
-        />
+        <SortDropdown sortBy={[ESortingType.DATE]} />
         <Dropdown
           value={'all'}
           options={[

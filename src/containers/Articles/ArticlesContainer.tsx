@@ -1,3 +1,4 @@
+import PageTitle from '@/components/PageTitle/PageTitle'
 import { ESortingType } from '@/components/SortDropdown'
 import SortDropdown from '@/components/SortDropdown/SortDropdown'
 import { breakpoints, uiConfigs } from '@/configs/ui.configs'
@@ -12,9 +13,7 @@ import {
   GridContainer,
   GridItem,
   ImageContainer,
-  MediaCount,
   Title,
-  TitleContainer,
 } from './StyledComponents'
 
 export type ArticleProps = {
@@ -54,10 +53,9 @@ export const ArticlesContainer: React.FC<ArticlesPageProps> = ({
 
   return (
     <Container {...props}>
-      <TitleContainer>
+      <PageTitle numberOfElements={articles?.length}>
         <Typography variant="h1">Articles</Typography>
-        <MediaCount>{articles?.length}</MediaCount>
-      </TitleContainer>
+      </PageTitle>
       <DropdownContainer>
         <SortDropdown sortBy={[ESortingType.DATE]} />
         <Dropdown

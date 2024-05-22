@@ -21,7 +21,7 @@ const SortDropdown: React.FC<SortDropdownProps> = (props) => {
 
   const DEFAULT_SORT_VALUE = generateValueId(
     ESortingType.DATE,
-    ESortingDirection.ASCENDING,
+    ESortingDirection.DESCENDING,
   )
   const [value, setValue] = useState(DEFAULT_SORT_VALUE)
 

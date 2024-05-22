@@ -40,5 +40,3 @@ export type SortDropdownProps = {
   onChange?: SortDropdownOnChangeHandler
   customLabels?: SortingLabels
 }
-
-export { default as SortDropdown } from './SortDropdown'

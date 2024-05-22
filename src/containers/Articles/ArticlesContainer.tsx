@@ -1,4 +1,5 @@
-import { ESortingType, SortDropdown } from '@/components/SortDropdown'
+import { ESortingType } from '@/components/SortDropdown'
+import SortDropdown from '@/components/SortDropdown/SortDropdown'
 import { breakpoints, uiConfigs } from '@/configs/ui.configs'
 import { Dropdown, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'

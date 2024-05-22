@@ -1,6 +1,7 @@
 import ProductsContainer from '@/containers/Products/ProductsContainer'
 import {
   MockShopTagResponse,
+  SHOP_MOCK_PRODUCTS,
   SHOP_MOCK_TAGS,
 } from '@/pages/shop/shop.mock.data'
 import { Product } from '@/types/product.types'
@@ -30,9 +31,9 @@ const ShopPage: NextPage<Props> = (props) => {
 // We can decide later if GetStaticProps is a better fit
 ShopPage.getInitialProps = async (): Promise<Props> => {
   return {
-    initialProductList: [],
+    initialProductList: SHOP_MOCK_PRODUCTS,
     availableTags: SHOP_MOCK_TAGS,
-    numberOfProducts: 1,
+    numberOfProducts: SHOP_MOCK_PRODUCTS.length,
   }
 }
 

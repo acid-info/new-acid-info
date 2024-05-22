@@ -1,4 +1,4 @@
-import { EProductTags } from '@/types/product.types'
+import { EProductTags, Product } from '@/types/product.types'
 
 export type MockShopTagResponse = {
   name: string
@@ -47,3 +47,24 @@ export const SHOP_MOCK_TAGS = [
     id: EProductTags.ACID,
   },
 ]
+
+const pictures = [
+  '/mock/products/hat-1.png',
+  '/mock/products/hat-2.png',
+  '/mock/products/shirt-1.png',
+  '/mock/products/shirt-2.png',
+]
+
+const currentDate = Date.now()
+export const SHOP_MOCK_PRODUCTS: Product[] = SHOP_MOCK_TAGS.map(
+  (mockTag, index) => {
+    return {
+      id: index.toString(),
+      title: `${mockTag.name} Product`,
+      price: '10$',
+      tags: [mockTag.id],
+      lastUpdate: currentDate - index,
+      imgLink: pictures[Math.floor(Math.random() * pictures.length)],
+    }
+  },
+)

@@ -194,6 +194,7 @@ const StyledCheckboxGroup = styled(CheckboxGroup)`
   flex-wrap: wrap;
   align-self: start;
   max-height: 128px;
+  margin-bottom: 80px;
 
   @media (max-width: ${breakpoints.sm}px) {
     max-height: none;

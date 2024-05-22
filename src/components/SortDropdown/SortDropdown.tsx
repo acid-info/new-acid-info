@@ -31,13 +31,12 @@ const SortDropdown: React.FC<SortDropdownProps> = (props) => {
 
     sortBy.forEach((type) => {
       options.push({
-        name: labelsToUse[type][ESortingDirection.ASCENDING],
-        value: generateValueId(type, ESortingDirection.ASCENDING),
-      })
-
-      options.push({
         name: labelsToUse[type][ESortingDirection.DESCENDING],
         value: generateValueId(type, ESortingDirection.DESCENDING),
+      })
+      options.push({
+        name: labelsToUse[type][ESortingDirection.ASCENDING],
+        value: generateValueId(type, ESortingDirection.ASCENDING),
       })
     })
 

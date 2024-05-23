@@ -1,3 +1,6 @@
+import PageTitle from '@/components/PageTitle/PageTitle'
+import { ESortingType } from '@/components/SortDropdown'
+import SortDropdown from '@/components/SortDropdown/SortDropdown'
 import { breakpoints, uiConfigs } from '@/configs/ui.configs'
 import { Dropdown, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
@@ -10,9 +13,7 @@ import {
   GridContainer,
   GridItem,
   ImageContainer,
-  MediaCount,
   Title,
-  TitleContainer,
 } from './StyledComponents'
 
 export type ArticleProps = {
@@ -36,7 +37,6 @@ export const ArticlesContainer: React.FC<ArticlesPageProps> = ({
   ...props
 }) => {
   const [itemsToShow, setItemsToShow] = useState(DEFAULT_ARTICLES_COUNT)
-  const [sortBy, setSortBy] = useState('new-to-old')
 
   const [showSeeMore, setShowSeeMore] = useState(
     articles?.length > DEFAULT_ARTICLES_COUNT,
@@ -53,26 +53,11 @@ export const ArticlesContainer: React.FC<ArticlesPageProps> = ({
 
   return (
     <Container {...props}>
-      <TitleContainer>
+      <PageTitle numberOfElements={articles?.length}>
         <Typography variant="h1">Articles</Typography>
-        <MediaCount>{articles?.length}</MediaCount>
-      </TitleContainer>
+      </PageTitle>
       <DropdownContainer>
-        <Dropdown
-          value={sortBy}
-          onChange={(value) => setSortBy(value as string)}
-          options={[
-            {
-              name: 'Old to New',
-              value: 'old-to-new',
-            },
-            {
-              name: 'New to Old',
-              value: 'new-to-old',
-            },
-          ]}
-          size="medium"
-        />
+        <SortDropdown sortBy={[ESortingType.DATE]} />
         <Dropdown
           value={'all'}
           options={[

@@ -7,7 +7,14 @@ export const FooterNewsletter = () => {
     <Container>
       <Typography variant="body2">Subscribe to Newsletter</Typography>
       <UserInput>
-        <TextField placeholder="Email">TextField</TextField>
+        <TextField
+          inputProps={{
+            id: 'email',
+          }}
+          placeholder="Email"
+        >
+          TextField
+        </TextField>
         <Button size="large" variant="filled">
           Subscribe
         </Button>

@@ -2,18 +2,6 @@ import { breakpoints } from '@/configs/ui.configs'
 import { Button, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
 
-export const TitleContainer = styled.div`
-  display: flex;
-  gap: 16px;
-  align-items: center;
-
-  margin-bottom: 32px;
-
-  @media (max-width: ${breakpoints.md}px) {
-    margin-bottom: 24px;
-  }
-`
-
 export const GridContainer = styled.div`
   height: 100%;
   width: 100%;
@@ -37,21 +25,6 @@ export const CTAButton = styled(Button)`
   margin-top: 32px;
   width: 100%;
   gap: 8px;
-`
-
-export const MediaCount = styled.div`
-  display: flex;
-  width: 40px;
-  height: 28px;
-
-  box-sizing: border-box;
-  justify-content: center;
-  align-items: center;
-  font-family: sans-serif;
-
-  background-color: rgb(var(--lsd-theme-primary));
-  color: white;
-  border-radius: 22px;
 `
 
 export const ImageContainer = styled.div`

@@ -49,7 +49,7 @@ Player.prototype.setInputCanvas = function( id )
 	var t = this;
 	document.onkeydown = function( e ) { if ( e.target.tagName != "INPUT" ) { t.onKeyEvent( e.keyCode, true ); return false; } }
 	document.onkeyup = function( e ) { if ( e.target.tagName != "INPUT" ) { t.onKeyEvent( e.keyCode, false ); return false; } }
-	canvas.onmousedown = function( e ) { console.log(e.button); t.onMouseEvent( e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, MOUSE.DOWN, e.button === 2 ); return false; }
+	canvas.onmousedown = function( e ) { t.onMouseEvent( e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, MOUSE.DOWN, e.button === 2 ); return false; }
 	canvas.onmouseup = function( e ) { t.onMouseEvent( e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, MOUSE.UP, e.button === 2 ); return false; }
 	canvas.onmousemove = function( e ) { t.onMouseEvent( e.clientX - canvas.getBoundingClientRect().left, e.clientY - canvas.getBoundingClientRect().top, MOUSE.MOVE, e.button === 2 ); return false; }
 }
@@ -61,7 +61,7 @@ Player.prototype.setInputCanvas = function( id )
 Player.prototype.setMaterialSelector = function( id )
 {
 	var tableRow = document.getElementById( id ).getElementsByTagName( "tr" )[0];
-	console.log(tableRow)
+
 	var texOffset = 0;
 	var numberOfElements = 16;
 	var widthOfElement = SELECTOR_WIDTH_PX;

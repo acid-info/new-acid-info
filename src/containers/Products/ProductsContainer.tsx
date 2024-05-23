@@ -9,43 +9,51 @@ import { breakpoints, uiConfigs } from '@/configs/ui.configs'
 import ProductContainer from '@/containers/Products/ProductContainer'
 import { MockShopTagResponse } from '@/pages/shop/shop.mock.data'
 import { Product } from '@/types/product.types'
+import { SelectOption } from '@/types/select.types'
 import { arrayIncludesAnyElementFromOtherArray } from '@/utils/general.utils'
 import {
   Button,
   Checkbox,
   CheckboxGroup,
+  Dropdown,
   Typography,
 } from '@acid-info/lsd-react'
 import { css } from '@emotion/react'
 import styled from '@emotion/styled'
-import { FC, useState } from 'react'
+import { FC, useMemo, useState } from 'react'
 
 export type ProductsContainerProps = {
+  highlightFilters: MockShopTagResponse
   tagFilters: MockShopTagResponse
   productsList: Product[]
   numberOfProducts: number
 }
 
 const ProductsContainer: FC<ProductsContainerProps> = (props) => {
-  const { tagFilters, numberOfProducts } = props
+  const { highlightFilters, tagFilters, numberOfProducts } = props
 
   const [checkedItems, setCheckedItems] = useState<string[]>([])
   const [productList, setProductList] = useState(props.productsList)
 
-  const onFilterChange = (e: any) => {
-    setCheckedItems((prevState) => {
-      let newState: string[]
-      const id = e.target.id
+  const filterOptions = useMemo(() => {
+    const allFilterOptions: SelectOption[] = []
 
-      if (e.target.checked) {
-        newState = [...prevState, id]
-      } else {
-        newState = prevState.filter((val) => val !== id)
-      }
-
-      return newState
+    highlightFilters.forEach((opt) => {
+      allFilterOptions.push({
+        name: opt.name,
+        value: opt.id,
+      })
     })
-  }
+
+    tagFilters.forEach((opt) => {
+      allFilterOptions.push({
+        name: opt.name,
+        value: opt.id,
+      })
+    })
+
+    return allFilterOptions
+  }, [tagFilters, highlightFilters])
 
   const onSortChange: SortDropdownOnChangeHandler = (type, direction) => {
     if (type === ESortingType.DATE) {
@@ -65,6 +73,36 @@ const ProductsContainer: FC<ProductsContainerProps> = (props) => {
     }
   }
 
+  const onFilterChange = (e: any) => {
+    setCheckedItems((prevState) => {
+      let newState: string[]
+      const id = e.target.id
+
+      if (e.target.checked) {
+        newState = [...prevState, id]
+      } else {
+        newState = prevState.filter((val) => val !== id)
+      }
+
+      return newState
+    })
+  }
+
+  const renderProducts = () => {
+    return productList.map((product) => {
+      // @TODO Remove this, temporary until Backend with SQL can do it properly and efficiently
+      const found = arrayIncludesAnyElementFromOtherArray(
+        product.tags,
+        checkedItems,
+      )
+      if (!found) {
+        return null
+      }
+
+      return <ProductContainer key={product.id} product={product} />
+    })
+  }
+
   return (
     <Container>
       <StyledCheckboxGroup onChange={onFilterChange}>
@@ -74,14 +112,12 @@ const ProductsContainer: FC<ProductsContainerProps> = (props) => {
         >
           All
         </StyledCheckbox>
-        <StyledCheckbox inputProps={{ id: 'bestsellers' }}>
-          Bestsellers
-        </StyledCheckbox>
-        <StyledCheckbox inputProps={{ id: 'trending' }}>
-          Trending
-        </StyledCheckbox>
-        {tagFilters.map((filter) => (
-          <StyledCheckbox inputProps={{ id: filter.id }} key={filter.id}>
+        {filterOptions.map((filter) => (
+          <StyledCheckbox
+            inputProps={{ id: filter.value }}
+            key={filter.value}
+            checked={checkedItems.includes(filter.value)}
+          >
             {filter.name}
           </StyledCheckbox>
         ))}
@@ -91,21 +127,18 @@ const ProductsContainer: FC<ProductsContainerProps> = (props) => {
       </PageTitle>
       <DropdownContainer>
         <SortDropdown sortBy={[ESortingType.DATE]} onChange={onSortChange} />
+        <FilterDropdown
+          value={checkedItems}
+          onChange={(values) => {
+            setCheckedItems(values as string[])
+          }}
+          size={'medium'}
+          triggerLabel={'All'}
+          options={filterOptions}
+          multi={true}
+        />
       </DropdownContainer>
-      <GridContainer>
-        {productList.map((product) => {
-          // @TODO Remove this, temporary until Backend with SQL can do it properly and efficiently
-          const found = arrayIncludesAnyElementFromOtherArray(
-            product.tags,
-            checkedItems,
-          )
-          if (!found) {
-            return null
-          }
-
-          return <ProductContainer key={product.id} product={product} />
-        })}
-      </GridContainer>
+      <GridContainer>{renderProducts()}</GridContainer>
       <CTAButton size="large" variant="filled">
         See more
       </CTAButton>
@@ -137,6 +170,13 @@ const DropdownContainer = styled.div`
     .lsd-dropdown--medium {
       width: calc(50vw - 14px);
     }
+  }
+`
+
+const FilterDropdown = styled(Dropdown)`
+  display: none;
+  @media (max-width: ${breakpoints.sm}px) {
+    display: block;
   }
 `
 
@@ -196,7 +236,7 @@ const StyledCheckboxGroup = styled(CheckboxGroup)`
   margin-bottom: 80px;
 
   @media (max-width: ${breakpoints.sm}px) {
-    max-height: none;
+    display: none;
   }
 `
 

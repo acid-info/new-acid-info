@@ -1,11 +1,22 @@
 import { EProductTags, Product } from '@/types/product.types'
 
-export type MockShopTagResponse = {
+export type MockShopTagResponse<ID = string> = {
   name: string
-  id: string
+  id: ID
 }[]
 
-export const SHOP_MOCK_TAGS = [
+export const SHOP_MOCK_HIGHLIGHT_TAGS: MockShopTagResponse = [
+  {
+    name: 'Bestsellers',
+    id: 'bestsellers',
+  },
+  {
+    name: 'Trending',
+    id: 'trending',
+  },
+]
+
+export const SHOP_MOCK_PRODUCT_TAGS: MockShopTagResponse<EProductTags> = [
   {
     name: 'Dresses',
     id: EProductTags.DRESSES,
@@ -56,7 +67,7 @@ const pictures = [
 ]
 
 const currentDate = Date.now()
-export const SHOP_MOCK_PRODUCTS: Product[] = SHOP_MOCK_TAGS.map(
+export const SHOP_MOCK_PRODUCTS: Product[] = SHOP_MOCK_PRODUCT_TAGS.map(
   (mockTag, index) => {
     return {
       id: index.toString(),

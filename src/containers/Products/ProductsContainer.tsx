@@ -7,7 +7,7 @@ import {
 import SortDropdown from '@/components/SortDropdown/SortDropdown'
 import { breakpoints, uiConfigs } from '@/configs/ui.configs'
 import ProductContainer from '@/containers/Products/ProductContainer'
-import { MockShopTagResponse } from '@/pages/shop/shop.mock.data'
+import { MockShopTagResponse } from '@/data/shop.mock.data'
 import { Product } from '@/types/product.types'
 import { SelectOption } from '@/types/select.types'
 import { arrayIncludesAnyElementFromOtherArray } from '@/utils/general.utils'

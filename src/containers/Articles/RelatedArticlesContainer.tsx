@@ -1,3 +1,4 @@
+import { TitleContainer } from '@/components/PageTitle/PageTitle'
 import { breakpoints } from '@/configs/ui.configs'
 import { Button, Typography } from '@acid-info/lsd-react'
 import styled from '@emotion/styled'
@@ -11,7 +12,6 @@ import {
   GridItem,
   ImageContainer,
   Title,
-  TitleContainer,
 } from './StyledComponents'
 
 export type RelatedArticlesPageProps = React.DetailedHTMLProps<

@@ -4,7 +4,7 @@ import {
   SHOP_MOCK_HIGHLIGHT_TAGS,
   SHOP_MOCK_PRODUCTS,
   SHOP_MOCK_PRODUCT_TAGS,
-} from '@/pages/shop/shop.mock.data'
+} from '@/data/shop.mock.data'
 import { EProductTags, Product } from '@/types/product.types'
 import { NextPage } from 'next'
 

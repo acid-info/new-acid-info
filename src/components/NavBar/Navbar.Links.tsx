@@ -45,7 +45,9 @@ const Container = styled.div`
   }
 `
 
-const NavLink = styled(Link)<{ isactive: boolean }>`
+const NavLink = styled(Link, {
+  shouldForwardProp: (prop) => prop !== 'isactive',
+})<{ isactive: boolean }>`
   display: flex;
   justify-content: center;
   align-items: center;

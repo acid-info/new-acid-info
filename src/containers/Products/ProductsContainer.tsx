@@ -59,7 +59,6 @@ const ProductsContainer: FC<ProductsContainerProps> = (props) => {
             return b.lastUpdate - a.lastUpdate
           }
         })
-        console.log(newState)
 
         return newState
       })

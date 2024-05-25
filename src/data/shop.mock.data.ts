@@ -67,6 +67,7 @@ const pictures = [
 ]
 
 const currentDate = Date.now()
+
 export const SHOP_MOCK_PRODUCTS: Product[] = SHOP_MOCK_PRODUCT_TAGS.map(
   (mockTag, index) => {
     return {
@@ -76,6 +77,7 @@ export const SHOP_MOCK_PRODUCTS: Product[] = SHOP_MOCK_PRODUCT_TAGS.map(
       tags: [mockTag.id],
       lastUpdate: currentDate - index,
       imgLink: pictures[Math.floor(Math.random() * pictures.length)],
+      slug: `product-${index + 1}`,
     }
   },
 )

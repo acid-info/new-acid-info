@@ -1,3 +1,4 @@
+import { SEO } from '@/components/SEO'
 import ProductsContainer from '@/containers/Products/ProductsContainer'
 import {
   MockShopTagResponse,
@@ -24,14 +25,15 @@ const ShopPage: NextPage<Props> = (props) => {
   } = props
 
   return (
-    <div>
+    <>
+      <SEO title="Shop | Acid.info" pagePath={`/shop`} />
       <ProductsContainer
         productsList={initialProductList}
         tagFilters={availableProductTags}
         highlightFilters={availableHighlightTags}
         numberOfProducts={numberOfProducts}
       />
-    </div>
+    </>
   )
 }
 

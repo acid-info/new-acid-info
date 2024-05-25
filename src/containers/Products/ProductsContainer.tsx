@@ -1,4 +1,5 @@
 import PageTitle from '@/components/PageTitle/PageTitle'
+import ProductBox from '@/components/Products/ProductBox'
 import {
   ESortingDirection,
   ESortingType,
@@ -6,7 +7,6 @@ import {
 } from '@/components/SortDropdown'
 import SortDropdown from '@/components/SortDropdown/SortDropdown'
 import { breakpoints, uiConfigs } from '@/configs/ui.configs'
-import ProductContainer from '@/containers/Products/ProductContainer'
 import { MockShopTagResponse } from '@/data/shop.mock.data'
 import { Product } from '@/types/product.types'
 import { SelectOption } from '@/types/select.types'
@@ -99,7 +99,7 @@ const ProductsContainer: FC<ProductsContainerProps> = (props) => {
         return null
       }
 
-      return <ProductContainer key={product.id} product={product} />
+      return <ProductBox key={product.id} product={product} />
     })
   }
 

@@ -25,4 +25,5 @@ export type Product = {
   // unix timestamp of last time of update
   lastUpdate: number
   imgLink: string
+  slug: string
 }

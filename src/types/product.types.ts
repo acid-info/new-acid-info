@@ -24,6 +24,10 @@ export type Product = {
   tags: EProductTags[]
   // unix timestamp of last time of update
   lastUpdate: number
-  imgLink: string
+  imgLink: string[]
   slug: string
+  description?: string
+  size?: string[]
+  color?: string[]
+  condition?: string
 }

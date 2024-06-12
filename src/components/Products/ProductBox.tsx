@@ -14,7 +14,7 @@ const ProductBox: FC<ProductContainerProps> = (props) => {
   return (
     <Container>
       <Link href={`/shop/${slug}`}>
-        <Image src={imgLink} alt={title} />
+        <Image src={imgLink[0]} alt={title} />
         <Typography
           component="p"
           style={{
@@ -29,7 +29,7 @@ const ProductBox: FC<ProductContainerProps> = (props) => {
             fontSize: 14,
           }}
         >
-          {price}
+          ${price}
         </Typography>
       </Link>
     </Container>
@@ -47,9 +47,17 @@ const Container = styled.div`
   &:hover {
     background-color: rgb(var(--lsd-theme-primary));
 
+    * {
+      text-decoration-color: white !important;
+    }
+
     p {
       color: white;
     }
+  }
+
+  * {
+    text-decoration-color: rgb(var(--lsd-theme-primary));
   }
 `
 

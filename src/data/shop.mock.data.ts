@@ -73,11 +73,19 @@ export const SHOP_MOCK_PRODUCTS: Product[] = SHOP_MOCK_PRODUCT_TAGS.map(
     return {
       id: index.toString(),
       title: `${mockTag.name} Product`,
-      price: '10$',
+      price: (Math.random() * 100).toFixed(0),
       tags: [mockTag.id],
       lastUpdate: currentDate - index,
-      imgLink: pictures[Math.floor(Math.random() * pictures.length)],
+      imgLink: [
+        pictures[Math.floor(Math.random() * pictures.length)],
+        pictures[Math.floor(Math.random() * pictures.length)],
+      ],
+      size: Math.random() > 0.5 ? ['S', 'M', 'L'] : ['M', 'L'],
+      color: Math.random() > 0.5 ? ['Red', 'Blue'] : ['Green', 'Yellow'],
+      condition: Math.random() > 0.5 ? 'New' : 'Used',
       slug: `product-${index + 1}`,
+      description:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry.\n\nLorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.",
     }
   },
 )

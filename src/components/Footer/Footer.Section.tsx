@@ -8,11 +8,11 @@ export const FooterSection = styled.div`
   width: 50%;
 `
 
-export const FooterContainer = styled.div`
+export const FooterContainer = styled.footer`
   display: flex;
   flex-direction: column;
 
-  padding: 16px 0;
+  padding-bottom: 16px;
   width: 100%;
 
   grid-column: 1 / 17;

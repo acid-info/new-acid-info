@@ -15,7 +15,6 @@ const Container = styled.div`
   box-sizing: border-box;
 
   margin-top: 24px;
-  margin-bottom: 148px;
 
   @media (max-width: ${breakpoints.md}px) {
     display: flex;

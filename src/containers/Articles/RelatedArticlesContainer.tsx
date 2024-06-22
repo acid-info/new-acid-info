@@ -58,7 +58,6 @@ const Container = styled.div`
   grid-column: 1 / 17;
   width: 100%;
   margin-top: 200px;
-  margin-bottom: 148px;
 
   @media (max-width: ${breakpoints.lg}px) {
     width: calc(100% - 20px);

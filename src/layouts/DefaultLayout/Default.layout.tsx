@@ -25,6 +25,7 @@ const Main = styled.main`
   width: 100%;
   grid-column: 1 / 17;
   margin-top: ${uiConfigs.navbarRenderedHeight}px;
+  margin-bottom: 148px;
 
   @media (max-width: ${breakpoints.md}px) {
     margin-top: ${uiConfigs.navbarMobileHeight}px;

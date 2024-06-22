@@ -234,6 +234,7 @@ const StyledCheckboxGroup = styled(CheckboxGroup)`
   align-self: start;
   max-height: 128px;
   margin-bottom: 80px;
+  gap: 0;
 
   @media (max-width: ${breakpoints.sm}px) {
     display: none;
@@ -242,8 +243,11 @@ const StyledCheckboxGroup = styled(CheckboxGroup)`
 
 const StyledCheckbox = styled(Checkbox)`
   margin-right: 43px;
+  padding-right: 16px;
   padding-top: 6px;
   padding-bottom: 6px;
+
+  font-size: 14px;
 `
 
 export default ProductsContainer

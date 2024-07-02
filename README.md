@@ -58,8 +58,8 @@ Keep in mind this webpage rebuilds itself at runtime.
 
 ## CI/CD
 
-- The `master` branch is deployed via [CI](https://ci.infra.status.im/job/website/job/free.technology/) to https://free.technology/.
-- The `develop` branch is deployed via [CI](https://ci.infra.status.im/job/website/job/dev.free.technology/) to https://dev.free.technology/.
+- The `master` branch is deployed via [CI](https://ci.infra.status.im/job/website/job/new-acid-info.vercel.app/) to https://new-acid-info.vercel.app/.
+- The `develop` branch is deployed via [CI](https://ci.infra.status.im/job/website/job/dev.new-acid-info.vercel.app/) to https://dev.new-acid-info.vercel.app/.
 
 ## Change Process
 

@@ -26,7 +26,7 @@ export default async function handler(request: NextRequest) {
           backgroundColor: '#fff',
           color: '#1400ff',
           position: 'relative',
-          fontFamily: 'sans-serif',
+          fontFamily: 'serif',
           padding: '39px 45px',
         }}
       >
@@ -45,6 +45,9 @@ export default async function handler(request: NextRequest) {
               fontSize: '54px',
               lineHeight: '73px',
               fontWeight: '400',
+              position: 'absolute',
+              top: 0,
+              left: 0,
             }}
           >
             {pagePath === '/' ? null : pagePath === '/media' ? (
@@ -76,13 +79,15 @@ export default async function handler(request: NextRequest) {
             <div>
               The future is a second enlightenment of the digital world.
             </div>
-            {/* <img
-              src="/og/mark.svg"
-              width={'100%'}
-              height={'100%'}
+            <img
+              src="https://new-acid-info.vercel.app/og/mark.svg"
+              width={'400px'}
+              height={'400px'}
               alt="og-asset"
-              style={{ objectFit: 'cover' }}
-            /> */}
+              style={{
+                position: 'absolute',
+              }}
+            />
           </div>
         </div>
       </div>

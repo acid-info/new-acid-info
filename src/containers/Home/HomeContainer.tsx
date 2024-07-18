@@ -1,7 +1,7 @@
 import { ClientOnly } from '@/components/ClientOnly'
 import ContentBox from '@/components/ContentBox/ContentBox'
-import { Minecraft } from '@/components/Minecraft'
 import { breakpoints } from '@/configs/ui.configs'
+import { WebCave } from '@acid-info/webcave-react'
 import styled from '@emotion/styled'
 import React from 'react'
 import { useRecoilValue } from 'recoil'
@@ -21,7 +21,17 @@ export const HomeContainer: React.FC<HomePageProps> = ({
   return (
     <Container {...props}>
       <ClientOnly>
-        <Minecraft />
+        <WebCave
+          chunkSize={8}
+          worldSize={16}
+          texturePack={{
+            terrain: '/webcave/terrain.png',
+            player: '/webcave/player.png',
+            backgroundImage: '/webcave/background.png',
+            blockThumbsImage: '/webcave/blockthumbs.png',
+          }}
+          height={'300px'}
+        />
       </ClientOnly>
       <ContentBox />
     </Container>

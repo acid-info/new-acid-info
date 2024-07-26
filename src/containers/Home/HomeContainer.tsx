@@ -23,7 +23,8 @@ export const HomeContainer: React.FC<HomePageProps> = ({
       <ClientOnly>
         <WebCave
           chunkSize={8}
-          worldSize={16}
+          worldSize={128}
+          worldSeed={'acid-info'}
           texturePack={{
             terrain: '/webcave/terrain.png',
             player: '/webcave/player.png',

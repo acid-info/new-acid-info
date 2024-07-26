@@ -20,10 +20,10 @@
     react-hot-toast "^2.4.1"
     react-use "^17.4.0"
 
-"@acid-info/webcave-client@^1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@acid-info/webcave-client/-/webcave-client-1.0.0-alpha.0.tgz#e10abd86cd875c200b14afa159c86fb981fb92c7"
-  integrity sha512-GCQUeGWpfcKFvJYRzKXf0t/Cu11l2DZ3Td4Wcf7VcadN4umJ6Dd8Jc3L9WDbxPmI09xX1/ELLIBzu1L23ZpwQQ==
+"@acid-info/webcave-client@^1.0.1-alpha.0":
+  version "1.0.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@acid-info/webcave-client/-/webcave-client-1.0.1-alpha.0.tgz#f20fd7c27a2cad9e01997b788d7c4190304d189d"
+  integrity sha512-2ObG218UQCAahbXKKzGmTVXV3FLKMjiNNKv8/rSce20YLePSJpvLizypWvKpkrz8GHdL0R0xiQcDZ/XG6ddLIQ==
   dependencies:
     "@types/react" "^18.2.66"
     gl-matrix "3.4.3"
@@ -33,25 +33,27 @@
     tslib "^2.3.1"
     typescript "^5.4.5"
 
-"@acid-info/webcave-core@^1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@acid-info/webcave-core/-/webcave-core-1.0.0-alpha.0.tgz#c4cb89eb80994208fff988644042c92c5d1f60c3"
-  integrity sha512-cACnfagxLycCxv2ialS8RyHoQMD1PxmHSajx6DwaUTaOU+eds22WJJvFWhc1BZjXKKeUR9swnQFFF7X2L/nOnQ==
+"@acid-info/webcave-core@^1.0.1-alpha.0":
+  version "1.0.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@acid-info/webcave-core/-/webcave-core-1.0.1-alpha.0.tgz#30a88826c8f775c869691fdb07f1b628d6c9c1c4"
+  integrity sha512-N9Odi46uvtqgUj360N/xQS0/L+59GolrGbOxioIIta8nv5+5Or5qnbd7AxC8XJTYRyqrnc7YXvlvmSZwczq4aA==
   dependencies:
     "@types/react" "^18.2.66"
+    alea "^1.0.1"
     gl-matrix "3.4.3"
     rollup "^2.60.2"
     rollup-plugin-typescript2 "^0.31.1"
+    simplex-noise "^4.0.2"
     tslib "^2.3.1"
     typescript "^5.4.5"
 
-"@acid-info/webcave-react@^1.0.0-alpha.0":
-  version "1.0.0-alpha.0"
-  resolved "https://registry.yarnpkg.com/@acid-info/webcave-react/-/webcave-react-1.0.0-alpha.0.tgz#4fdaaeef76bf13fe77d1650cfb83da39d47a632a"
-  integrity sha512-hP4FeKH7jHkw+36IC7IjykbLD8HE14Fl4xlOBprI6vOhuQ13E9iScIIE6yFymM0TFPmbhqhF+EQJK8MmlIm6xw==
+"@acid-info/webcave-react@^1.0.1-alpha.0":
+  version "1.0.1-alpha.0"
+  resolved "https://registry.yarnpkg.com/@acid-info/webcave-react/-/webcave-react-1.0.1-alpha.0.tgz#3dc601e3a276032ce63b3d8b43cc964a66265625"
+  integrity sha512-og/klvFkhCy4sHzFGkPf6XfwJwec/c1422Zh3xBjCZJgpxRF0iVdAO+6hdyYgDhvGHCbqjFwdxr+pugWL41kIA==
   dependencies:
-    "@acid-info/webcave-client" "^1.0.0-alpha.0"
-    "@acid-info/webcave-core" "^1.0.0-alpha.0"
+    "@acid-info/webcave-client" "^1.0.1-alpha.0"
+    "@acid-info/webcave-core" "^1.0.1-alpha.0"
     "@types/react" "^18.2.66"
     rollup "^2.60.2"
     rollup-plugin-typescript2 "^0.31.1"
@@ -1018,6 +1020,11 @@ ajv@^6.12.4:
     fast-json-stable-stringify "^2.0.0"
     json-schema-traverse "^0.4.1"
     uri-js "^4.2.2"
+
+alea@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/alea/-/alea-1.0.1.tgz#957f60741c5ad11b13f72aa02a6b89fe96a26dc4"
+  integrity sha512-QU+wv+ziDXaMxRdsQg/aH7sVfWdhKps5YP97IIwFkHCsbDZA3k87JXoZ5/iuemf4ntytzIWeScrRpae8+lDrXA==
 
 ansi-escapes@^5.0.0:
   version "5.0.0"
@@ -5702,6 +5709,11 @@ sigstore@^2.2.0:
     "@sigstore/sign" "^2.3.0"
     "@sigstore/tuf" "^2.3.1"
     "@sigstore/verify" "^1.2.0"
+
+simplex-noise@^4.0.2:
+  version "4.0.2"
+  resolved "https://registry.yarnpkg.com/simplex-noise/-/simplex-noise-4.0.2.tgz#f8e0a7848b0113a4a0ee346e48717f2b703f0ed3"
+  integrity sha512-E3c6BbcFcwyxExp5lorMYP3tZqSfs4iHcNzv2mRJIP4xf3G4r77b9YE8ceIt1ntyTu2VFFISunxt2YX9CpAf+w==
 
 slash@^3.0.0:
   version "3.0.0"

@@ -1,6 +1,5 @@
 import { ClientOnly } from '@/components/ClientOnly'
 import ContentBox from '@/components/ContentBox/ContentBox'
-import EnvConfigs from '@/configs/env.configs'
 import { breakpoints } from '@/configs/ui.configs'
 import { WebCaveMultiplayer } from '@acid-info/webcave-react'
 import styled from '@emotion/styled'
@@ -18,13 +17,13 @@ export const HomeContainer: React.FC<HomePageProps> = ({
   ...props
 }) => {
   const theme = useRecoilValue(themeState)
-  console.log(EnvConfigs.WEBCAVE_SERVER_URL)
+
   return (
     <Container {...props}>
       <ClientOnly>
         <WebCaveContainer>
           <WebCaveMultiplayer
-            serverUrl={EnvConfigs.WEBCAVE_SERVER_URL}
+            serverUrl={'https://webcave.infra.status.im/'} // Temporarily hard-coded
             chunkSize={8}
             texturePack={{
               terrain: '/webcave/terrain.png',

@@ -20,10 +20,10 @@
     react-hot-toast "^2.4.1"
     react-use "^17.4.0"
 
-"@acid-info/webcave-client@^1.0.1-alpha.0":
-  version "1.0.1-alpha.0"
-  resolved "https://registry.yarnpkg.com/@acid-info/webcave-client/-/webcave-client-1.0.1-alpha.0.tgz#f20fd7c27a2cad9e01997b788d7c4190304d189d"
-  integrity sha512-2ObG218UQCAahbXKKzGmTVXV3FLKMjiNNKv8/rSce20YLePSJpvLizypWvKpkrz8GHdL0R0xiQcDZ/XG6ddLIQ==
+"@acid-info/webcave-client@^1.0.2-alpha.0":
+  version "1.0.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/@acid-info/webcave-client/-/webcave-client-1.0.2-alpha.0.tgz#8664c4d9777eeb66b5e4b311d385216d5f7cb0cd"
+  integrity sha512-74TDjKqNG48EgJuuvUH9WeTENtLKn/Y4U063Bzbccketts78s6WpmeWq3AoYp9BCFNKQwiSKhQelQdBAA9GRLg==
   dependencies:
     "@types/react" "^18.2.66"
     gl-matrix "3.4.3"
@@ -33,10 +33,10 @@
     tslib "^2.3.1"
     typescript "^5.4.5"
 
-"@acid-info/webcave-core@^1.0.1-alpha.0":
-  version "1.0.1-alpha.0"
-  resolved "https://registry.yarnpkg.com/@acid-info/webcave-core/-/webcave-core-1.0.1-alpha.0.tgz#30a88826c8f775c869691fdb07f1b628d6c9c1c4"
-  integrity sha512-N9Odi46uvtqgUj360N/xQS0/L+59GolrGbOxioIIta8nv5+5Or5qnbd7AxC8XJTYRyqrnc7YXvlvmSZwczq4aA==
+"@acid-info/webcave-core@^1.0.2-alpha.0":
+  version "1.0.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/@acid-info/webcave-core/-/webcave-core-1.0.2-alpha.0.tgz#1c8408f077d467321ffad5f9911c4291d449858f"
+  integrity sha512-2COkzXZx6XtB6wJEgHUjJqV++9ok5Loxl9jcFB6yNoOM70b2Z4P8igKop/IGkEeFyeE0TdBeP19eWpaLLNZYTw==
   dependencies:
     "@types/react" "^18.2.66"
     alea "^1.0.1"
@@ -47,13 +47,13 @@
     tslib "^2.3.1"
     typescript "^5.4.5"
 
-"@acid-info/webcave-react@^1.0.1-alpha.0":
-  version "1.0.1-alpha.0"
-  resolved "https://registry.yarnpkg.com/@acid-info/webcave-react/-/webcave-react-1.0.1-alpha.0.tgz#3dc601e3a276032ce63b3d8b43cc964a66265625"
-  integrity sha512-og/klvFkhCy4sHzFGkPf6XfwJwec/c1422Zh3xBjCZJgpxRF0iVdAO+6hdyYgDhvGHCbqjFwdxr+pugWL41kIA==
+"@acid-info/webcave-react@^1.0.2-alpha.0":
+  version "1.0.2-alpha.0"
+  resolved "https://registry.yarnpkg.com/@acid-info/webcave-react/-/webcave-react-1.0.2-alpha.0.tgz#1efef4d80d55518d0a29b0d4a2ef01e82cfc3bc7"
+  integrity sha512-SEpe+4+Iel0XytiA0yC678pepxMWHzHNucaalzWrvEOAFb1FQTIaJaornaXJkhL4CBKfCzVUa0s38PrCNi5pqw==
   dependencies:
-    "@acid-info/webcave-client" "^1.0.1-alpha.0"
-    "@acid-info/webcave-core" "^1.0.1-alpha.0"
+    "@acid-info/webcave-client" "^1.0.2-alpha.0"
+    "@acid-info/webcave-core" "^1.0.2-alpha.0"
     "@types/react" "^18.2.66"
     rollup "^2.60.2"
     rollup-plugin-typescript2 "^0.31.1"
@@ -5883,16 +5883,7 @@ string-argv@0.3.2:
   resolved "https://registry.yarnpkg.com/string-argv/-/string-argv-0.3.2.tgz#2b6d0ef24b656274d957d54e0a4bbf6153dc02b6"
   integrity sha512-aqD2Q0144Z+/RqG52NeHEkZauTAUWJO8c6yTftGJKO3Tja5tUgIfmIl6kExvhtxSDP7fXB6DvzkfMpCd/F3G+Q==
 
-"string-width-cjs@npm:string-width@^4.2.0":
-  version "4.2.3"
-  resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
-  integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
-  dependencies:
-    emoji-regex "^8.0.0"
-    is-fullwidth-code-point "^3.0.0"
-    strip-ansi "^6.0.1"
-
-string-width@^4.1.0, string-width@^4.2.3:
+"string-width-cjs@npm:string-width@^4.2.0", string-width@^4.1.0, string-width@^4.2.3:
   version "4.2.3"
   resolved "https://registry.yarnpkg.com/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
   integrity sha512-wKyQRQpjJ0sIp62ErSZdGsjMJWsap5oRNihHhu6G7JVO/9jIB6UyevL+tXuOqrng8j/cxKTWyWUwvSTriiZz/g==
@@ -5965,14 +5956,7 @@ stringify-entities@^4.0.0:
     character-entities-html4 "^2.0.0"
     character-entities-legacy "^3.0.0"
 
-"strip-ansi-cjs@npm:strip-ansi@^6.0.1":
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
-  integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==
-  dependencies:
-    ansi-regex "^5.0.1"
-
-strip-ansi@^6.0.0, strip-ansi@^6.0.1:
+"strip-ansi-cjs@npm:strip-ansi@^6.0.1", strip-ansi@^6.0.0, strip-ansi@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/strip-ansi/-/strip-ansi-6.0.1.tgz#9e26c63d30f53443e9489495b2105d37b67a85d9"
   integrity sha512-Y38VPSHcqkFrCpFnQ9vuSXmquuv5oXOKpGeT6aGrr3o3Gc9AlVa6JBfUSOCnbxGGZF+/0ooI7KrPuUSztUdU5A==

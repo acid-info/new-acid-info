@@ -1,7 +1,8 @@
 import { ClientOnly } from '@/components/ClientOnly'
 import ContentBox from '@/components/ContentBox/ContentBox'
+import EnvConfigs from '@/configs/env.configs'
 import { breakpoints } from '@/configs/ui.configs'
-import { WebCave } from '@acid-info/webcave-react'
+import { WebCaveMultiplayer } from '@acid-info/webcave-react'
 import styled from '@emotion/styled'
 import React from 'react'
 import { useRecoilValue } from 'recoil'
@@ -17,22 +18,23 @@ export const HomeContainer: React.FC<HomePageProps> = ({
   ...props
 }) => {
   const theme = useRecoilValue(themeState)
-
+  console.log(EnvConfigs.WEBCAVE_SERVER_URL)
   return (
     <Container {...props}>
       <ClientOnly>
-        <WebCave
-          chunkSize={8}
-          worldSize={128}
-          worldSeed={'acid-info'}
-          texturePack={{
-            terrain: '/webcave/terrain.png',
-            player: '/webcave/player.png',
-            backgroundImage: '/webcave/background.png',
-            blockThumbsImage: '/webcave/blockthumbs.png',
-          }}
-          height={'300px'}
-        />
+        <WebCaveContainer>
+          <WebCaveMultiplayer
+            serverUrl={EnvConfigs.WEBCAVE_SERVER_URL}
+            chunkSize={8}
+            texturePack={{
+              terrain: '/webcave/terrain.png',
+              player: '/webcave/player.png',
+              backgroundImage: '/webcave/background.png',
+              blockThumbsImage: '/webcave/blockthumbs.png',
+            }}
+            height={'100%'}
+          />
+        </WebCaveContainer>
       </ClientOnly>
       <ContentBox />
     </Container>
@@ -42,5 +44,30 @@ export const HomeContainer: React.FC<HomePageProps> = ({
 const Container = styled.div`
   @media (max-width: ${breakpoints.lg}px) {
     margin-inline: 10px;
+  }
+`
+
+const WebCaveContainer = styled.div`
+  @font-face {
+    font-family: 'Monocraft';
+    src: local('Monocraft'), url('/fonts/Monocraft.ttf') format('opentype');
+    font-weight: normal;
+  }
+
+  height: 450px;
+
+  * {
+    font-family: 'Monocraft' !important;
+  }
+
+  button {
+    background: none;
+    border: 0;
+    color: white;
+
+    &:hover {
+      border: 1px solid black;
+      border-radius: 8px;
+    }
   }
 `

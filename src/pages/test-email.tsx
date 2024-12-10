@@ -80,6 +80,16 @@ const Container = styled.div`
     gap: 20px;
     margin-bottom: 20px;
 
+    input {
+      &:focus {
+        outline: none;
+        border-color: black;
+      }
+      &::placeholder {
+        color: #ccc;
+      }
+    }
+
     * {
       color: black;
       background: transparent;
@@ -96,6 +106,14 @@ const Container = styled.div`
       border: 1px solid black;
       border-radius: 4px;
       padding: 8px 16px;
+      font-size: 16px;
+      font-weight: 500;
+      margin-top: 20px;
+
+      &:hover {
+        background: #2c2c2c;
+        transition: background-color 0.2s ease;
+      }
     }
   }
 `

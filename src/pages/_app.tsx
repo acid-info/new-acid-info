@@ -1,5 +1,6 @@
 import { ProgressBar } from '@/components/ProgressBar/ProgressBar'
 import { DefaultLayout } from '@/layouts/DefaultLayout'
+import { PortalProvider } from '@acid-info/lsd-react'
 import '@acid-info/lsd-react/css'
 import { generateLsdVars } from '@acid-info/lsd-react/theme'
 import { css, Global } from '@emotion/react'
@@ -98,7 +99,7 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
         `}
       />
       <ProgressBar />
-      {getLayout(<Component {...pageProps} />)}
+      <PortalProvider>{getLayout(<Component {...pageProps} />)}</PortalProvider>
     </RecoilRoot>
   )
 }

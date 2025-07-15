@@ -1,7 +1,7 @@
 import { ProgressBar } from '@/components/ProgressBar/ProgressBar'
 import { DefaultLayout } from '@/layouts/DefaultLayout'
 import '@acid-info/lsd-react/css'
-import { LsdThemeStyles } from '@acid-info/lsd-react/theme'
+import { generateLsdVars } from '@acid-info/lsd-react/theme'
 import { css, Global } from '@emotion/react'
 import { NextComponentType, NextPageContext } from 'next'
 import type { AppProps } from 'next/app'
@@ -34,23 +34,25 @@ export default function App({ Component, pageProps }: AppLayoutProps) {
           name="viewport"
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"
         />
-        <head>
-          <link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico" />
-          <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-          <meta name="msapplication-TileColor" content="#000000" />
-          <meta
-            name="theme-color"
-            media="(prefers-color-scheme: light)"
-            content="#fff"
-          />
-          <meta
-            name="theme-color"
-            media="(prefers-color-scheme: dark)"
-            content="#000"
-          />
-          <LsdThemeStyles />
-        </head>
+        <link rel="apple-touch-icon" sizes="76x76" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: light)"
+          content="#fff"
+        />
+        <meta
+          name="theme-color"
+          media="(prefers-color-scheme: dark)"
+          content="#000"
+        />
+        <style
+          id="lsd-theme-styles"
+          dangerouslySetInnerHTML={{ __html: generateLsdVars() }}
+        />
       </Head>
+
       <Global
         styles={css`
           :root {

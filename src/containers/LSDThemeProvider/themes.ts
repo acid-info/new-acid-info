@@ -3,7 +3,7 @@ import {
   CreateThemeProps,
   defaultThemes,
   Theme,
-} from '@acid-info/lsd-react'
+} from '@acid-info/lsd-react/theme'
 import { css } from '@emotion/react'
 import { useMemo } from 'react'
 import { useThemeState } from '../../states/themeState/theme.state'

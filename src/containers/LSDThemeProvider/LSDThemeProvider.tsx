@@ -1,15 +1,10 @@
-import { ThemeProvider, ThemeProviderProps } from '@acid-info/lsd-react'
+import { LsdThemeStyles } from '@acid-info/lsd-react/theme'
 import { Global } from '@emotion/react'
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import useThemeState from '../../states/themeState/theme.state'
 import { useLSDTheme } from './themes'
 
-export type LSDThemeProviderProps = Partial<ThemeProviderProps>
-
-export const LSDThemeProvider: React.FC<LSDThemeProviderProps> = ({
-  children,
-  ...props
-}) => {
+export const LSDThemeProvider = () => {
   const theme = useLSDTheme()
   const { mode, genericFontFamily } = useThemeState()
 
@@ -20,10 +15,13 @@ export const LSDThemeProvider: React.FC<LSDThemeProviderProps> = ({
   }, [mode.value, genericFontFamily.value])
 
   return (
-    <ThemeProvider theme={theme.current} injectCssVars={false}>
+    <>
+      <LsdThemeStyles
+        customThemes={{ dark: theme.dark, light: theme.light }}
+        initialTheme={theme.current.name}
+      />
       <Global styles={theme.darkCssVars} />
       <Global styles={theme.lightCssVars} />
-      {children}
-    </ThemeProvider>
+    </>
   )
 }

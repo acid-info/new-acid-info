@@ -1,4 +1,4 @@
-import { TypographyGenericFontFamily } from '@acid-info/lsd-react'
+import { TypographyGenericFontFamily } from '@acid-info/lsd-react/theme'
 import { hookstate, State, useHookstate } from '@hookstate/core'
 import { localstored } from '@hookstate/localstored'
 
